@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Z Lab(TronOnDrugs)", "Z Lab(TronOnDrugs)\Z Lab(TronOnDrugs).csproj", "{FC0CCE25-84C9-4644-878E-E49D3A9DEDC1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC0CCE25-84C9-4644-878E-E49D3A9DEDC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC0CCE25-84C9-4644-878E-E49D3A9DEDC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC0CCE25-84C9-4644-878E-E49D3A9DEDC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC0CCE25-84C9-4644-878E-E49D3A9DEDC1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F42B40EE-77AB-4084-8962-3B228D53D247}
+	EndGlobalSection
+EndGlobal
