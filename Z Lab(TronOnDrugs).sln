@@ -1,13 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31702.278
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Z Lab(TronOnDrugs)", "Z Lab(TronOnDrugs)\Z Lab(TronOnDrugs).csproj", "{FC0CCE25-84C9-4644-878E-E49D3A9DEDC1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj", "{19AF5B78-360F-4F35-86A0-095456C2E18C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{77EE4276-C679-4017-B7C0-34F566DD0EF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +15,6 @@ Global
 		{FC0CCE25-84C9-4644-878E-E49D3A9DEDC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC0CCE25-84C9-4644-878E-E49D3A9DEDC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC0CCE25-84C9-4644-878E-E49D3A9DEDC1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{19AF5B78-360F-4F35-86A0-095456C2E18C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{19AF5B78-360F-4F35-86A0-095456C2E18C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{19AF5B78-360F-4F35-86A0-095456C2E18C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{19AF5B78-360F-4F35-86A0-095456C2E18C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{77EE4276-C679-4017-B7C0-34F566DD0EF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{77EE4276-C679-4017-B7C0-34F566DD0EF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{77EE4276-C679-4017-B7C0-34F566DD0EF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{77EE4276-C679-4017-B7C0-34F566DD0EF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
