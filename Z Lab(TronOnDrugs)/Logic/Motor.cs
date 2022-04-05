@@ -64,7 +64,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         }
         #endregion
 
-        public void move()
+        public void move() 
         {
             if(0>=orientation||90< orientation)
             {
