@@ -13,6 +13,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         public List<Vector> Vectors { get; set; }
 
         public event EventHandler Change;
+        public event EventHandler EndGame;
 
         public Logic(List<Motor> motors)
         {
@@ -22,15 +23,18 @@ namespace Z_Lab_TronOnDrugs_.Logic
 
         public void Turn()
         {
+            bool EndGameToken = false;
             foreach (Motor motor in Motors)
             {
-                Vector vector = motor.Move();
+                Vector vector = motor.Move(Vectors, ref EndGameToken);
+                if (EndGameToken)
+                {
+                    EndGame?.Invoke(null, null);
+                }
                 if (vector != null)
                 {
                     Vectors.Add(vector);
                 }
-
-
             }
             Change?.Invoke(null, null);
         }

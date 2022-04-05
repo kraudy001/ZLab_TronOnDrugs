@@ -13,6 +13,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         public Point EndPoint;
         public string sorce;
 
+        #region Constructors
         public Vector(int StartX, int StartY, int EndX, int EndY)
         {
             StartPoint = new Point(StartX, StartY);
@@ -23,7 +24,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
             this.StartPoint = StartPoint;
             this.EndPoint = EndPoint;
         }
-
+        #endregion
 
         public bool VectorsIntersect(Vector vektor)
         {
@@ -67,6 +68,11 @@ namespace Z_Lab_TronOnDrugs_.Logic
             }
             return (s >= 0 && s <= 1) && (t >= 0 && t <= 1);
 
+        }
+
+        public double DistanceBetweenEndPoints()
+        {
+            return Math.Sqrt(Math.Pow(EndPoint.X - StartPoint.X, 2) + Math.Pow(EndPoint.Y - StartPoint.Y, 2));
         }
 
 

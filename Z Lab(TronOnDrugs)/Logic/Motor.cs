@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 
 namespace Z_Lab_TronOnDrugs_.Logic
@@ -25,6 +26,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
             this.orientation = startingOrientation;
             dasCounter = 1;
         }
+
         #region Turning
         public void TurnLeft()
         {
@@ -66,59 +68,79 @@ namespace Z_Lab_TronOnDrugs_.Logic
         }
         #endregion
 
-        public Vector Move() 
+        #region Move
+        public Vector Move(List<Vector> vectors, ref bool EndGameToken) 
         {
             if(0>=orientation||90< orientation)
             {
-                Placement = new Point(Placement.X - (int)Math.Sin(orientation) / speed, Placement.Y + (int)Math.Cos(orientation) / speed);
+                //Placement = new Point(Placement.X - (int)Math.Sin(orientation) / speed, Placement.Y + (int)Math.Cos(orientation) / speed);
                 //werticalPlacement = werticalPlacement - (int)Math.Sin(orientation)/speed;
                 //horisontalPlacement = horisontalPlacement + (int)Math.Cos(orientation)/speed;
-                return PointChange(new Point(Placement.X - (int)Math.Sin(orientation) / speed, Placement.Y + (int)Math.Cos(orientation) / speed));
+                return PointChange(new Point(Placement.X - (int)Math.Sin(orientation) / speed, Placement.Y + (int)Math.Cos(orientation) / speed), vectors, EndGameToken);
             }
             else if(90 >= orientation || 180 < orientation)
             {
-                Placement = new Point(Placement.X - (int)Math.Sin(180 - orientation) / speed, Placement.Y - (int)Math.Cos(180 - orientation) / speed);
+                //Placement = new Point(Placement.X - (int)Math.Sin(180 - orientation) / speed, Placement.Y - (int)Math.Cos(180 - orientation) / speed);
                 //werticalPlacement = werticalPlacement - (int)Math.Sin(180 - orientation) / speed;
                 //horisontalPlacement = horisontalPlacement - (int)Math.Cos(180 - orientation) / speed;
-                return PointChange(new Point(Placement.X - (int)Math.Sin(180 - orientation) / speed, Placement.Y - (int)Math.Cos(180 - orientation) / speed));
+                return PointChange(new Point(Placement.X - (int)Math.Sin(180 - orientation) / speed, Placement.Y - (int)Math.Cos(180 - orientation) / speed), vectors, EndGameToken);
             }
             else if (180 >= orientation || 270 < orientation)
             {
-                Placement = new Point(Placement.X + (int)Math.Sin(orientation - 180) / speed, Placement.Y - (int)Math.Cos(orientation - 180) / speed);
+                //Placement = new Point(Placement.X + (int)Math.Sin(orientation - 180) / speed, Placement.Y - (int)Math.Cos(orientation - 180) / speed);
                 //werticalPlacement = werticalPlacement + (int)Math.Sin(orientation - 180) / speed;
                 //horisontalPlacement = horisontalPlacement - (int)Math.Cos(orientation - 180) / speed;
-                return PointChange(new Point(Placement.X + (int)Math.Sin(orientation - 180) / speed, Placement.Y - (int)Math.Cos(orientation - 180) / speed));
+                return PointChange(new Point(Placement.X + (int)Math.Sin(orientation - 180) / speed, Placement.Y - (int)Math.Cos(orientation - 180) / speed), vectors, EndGameToken);
             }
             else if (270 >= orientation || 360 <= orientation)
             {
                 //werticalPlacement = werticalPlacement + (int)Math.Sin(360 - orientation) / speed;
                 //horisontalPlacement = horisontalPlacement + (int)Math.Cos(360 - orientation) / speed;
-                return PointChange(new Point(Placement.X + (int)Math.Sin(360 - orientation) / speed, Placement.Y + (int)Math.Cos(360 - orientation) / speed));
+                return PointChange(new Point(Placement.X + (int)Math.Sin(360 - orientation) / speed, Placement.Y + (int)Math.Cos(360 - orientation) / speed), vectors, EndGameToken);
             }
             throw new Exception("Motor movement error");
         }
 
-        private Vector PointChange(Point point)
+        private Vector PointChange(Point point, List<Vector> vectors, ref bool EndGameToken)
         {
-            if(dasCounter == 1)
+            Vector toReturn = new Vector(Placement, point);
+            if (dasCounter == 1)
             {
-                dasCounter--;
 
-                Vector toReturn = new Vector(Placement, point);
+                dasCounter--;
                 Placement = point;
-                
+                EndGameToken = Collision(vectors,toReturn);
                 return toReturn;
                 
             }
             else
             {
                 dasCounter = 1;
-
                 Placement = point;
+                EndGameToken = Collision(vectors, toReturn);
                 return null;
             }
         }
+        #endregion
 
+        #region Collision detection
+        public bool Collision(List<Vector> vectors, Vector vector)
+        {
+
+            foreach (Vector item in vectors)
+            {
+                if (speed * 2 < new Vector(item.StartPoint, Placement).DistanceBetweenEndPoints())
+                {
+                    if (vector.VectorsIntersect(item))
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+        #endregion
 
     }
 }
