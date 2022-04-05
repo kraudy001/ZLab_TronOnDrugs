@@ -1,12 +1,12 @@
 ﻿using System;
+using System.Windows;
 
 namespace Z_Lab_TronOnDrugs_.Logic
 {
     public class Motor
     {
         #region Property
-        public int werticalPlacement { get; set; }
-        public int horisontalPlacement { get; set; }  // placement of objet (proportionally to grid)
+        public Point Placement { get; set; }    // placement of objet (proportionally to grid)
         #endregion
 
         #region Variable
@@ -14,14 +14,16 @@ namespace Z_Lab_TronOnDrugs_.Logic
 
         IAbility special;  //currentli usable ability
 
+        int dasCounter;
+
         private int turnAmount = 3; //fine tune needed
         private int speed = 2;
         #endregion
         public Motor(int wericalStart, int horisontalStart, int startingOrientation)
         {
-            this.werticalPlacement = wericalStart;
-            this.horisontalPlacement = horisontalStart;
+            this.Placement = new Point( wericalStart, horisontalStart);
             this.orientation = startingOrientation;
+            dasCounter = 1;
         }
         #region Turning
         public void TurnLeft()
@@ -54,7 +56,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         {
             if(special != null)
             {
-                special.CastAbility(werticalPlacement, horisontalPlacement);
+                special.CastAbility(Placement);
             }
             special = null;
         }
@@ -64,27 +66,56 @@ namespace Z_Lab_TronOnDrugs_.Logic
         }
         #endregion
 
-        public void move() 
+        public Vector Move() 
         {
             if(0>=orientation||90< orientation)
             {
-                werticalPlacement = werticalPlacement - (int)Math.Sin(orientation)/speed;
-                horisontalPlacement = horisontalPlacement + (int)Math.Cos(orientation)/speed;
+                Placement = new Point(Placement.X - (int)Math.Sin(orientation) / speed, Placement.Y + (int)Math.Cos(orientation) / speed);
+                //werticalPlacement = werticalPlacement - (int)Math.Sin(orientation)/speed;
+                //horisontalPlacement = horisontalPlacement + (int)Math.Cos(orientation)/speed;
+                return PointChange(new Point(Placement.X - (int)Math.Sin(orientation) / speed, Placement.Y + (int)Math.Cos(orientation) / speed));
             }
             else if(90 >= orientation || 180 < orientation)
             {
-                werticalPlacement = werticalPlacement - (int)Math.Sin(180 - orientation) / speed;
-                horisontalPlacement = horisontalPlacement - (int)Math.Cos(180 - orientation) / speed;
+                Placement = new Point(Placement.X - (int)Math.Sin(180 - orientation) / speed, Placement.Y - (int)Math.Cos(180 - orientation) / speed);
+                //werticalPlacement = werticalPlacement - (int)Math.Sin(180 - orientation) / speed;
+                //horisontalPlacement = horisontalPlacement - (int)Math.Cos(180 - orientation) / speed;
+                return PointChange(new Point(Placement.X - (int)Math.Sin(180 - orientation) / speed, Placement.Y - (int)Math.Cos(180 - orientation) / speed));
             }
             else if (180 >= orientation || 270 < orientation)
             {
-                werticalPlacement = werticalPlacement + (int)Math.Sin(orientation - 180) / speed;
-                horisontalPlacement = horisontalPlacement - (int)Math.Cos(orientation - 180) / speed;
+                Placement = new Point(Placement.X + (int)Math.Sin(orientation - 180) / speed, Placement.Y - (int)Math.Cos(orientation - 180) / speed);
+                //werticalPlacement = werticalPlacement + (int)Math.Sin(orientation - 180) / speed;
+                //horisontalPlacement = horisontalPlacement - (int)Math.Cos(orientation - 180) / speed;
+                return PointChange(new Point(Placement.X + (int)Math.Sin(orientation - 180) / speed, Placement.Y - (int)Math.Cos(orientation - 180) / speed));
             }
             else if (270 >= orientation || 360 <= orientation)
             {
-                werticalPlacement = werticalPlacement + (int)Math.Sin(360 - orientation) / speed;
-                horisontalPlacement = horisontalPlacement + (int)Math.Cos(360 - orientation) / speed;
+                //werticalPlacement = werticalPlacement + (int)Math.Sin(360 - orientation) / speed;
+                //horisontalPlacement = horisontalPlacement + (int)Math.Cos(360 - orientation) / speed;
+                return PointChange(new Point(Placement.X + (int)Math.Sin(360 - orientation) / speed, Placement.Y + (int)Math.Cos(360 - orientation) / speed));
+            }
+            throw new Exception("Motor movement error");
+        }
+
+        private Vector PointChange(Point point)
+        {
+            if(dasCounter == 1)
+            {
+                dasCounter--;
+
+                Vector toReturn = new Vector(Placement, point);
+                Placement = point;
+                
+                return toReturn;
+                
+            }
+            else
+            {
+                dasCounter = 1;
+
+                Placement = point;
+                return null;
             }
         }
 
