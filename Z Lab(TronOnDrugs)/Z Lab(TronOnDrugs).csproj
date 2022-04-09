@@ -8,6 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\tron-blue.bmp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\tron-blue.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Controller\" />
     <Folder Include="Renderer\" />
   </ItemGroup>

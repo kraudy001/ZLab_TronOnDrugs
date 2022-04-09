@@ -4,29 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 
 namespace Z_Lab_TronOnDrugs_.Logic
 {
-    public class Vector
+    public class Vectors
     {
         public Point StartPoint;
         public Point EndPoint;
         public string sorce;
 
         #region Constructors
-        public Vector(int StartX, int StartY, int EndX, int EndY)
+        public Vectors(int StartX, int StartY, int EndX, int EndY)
         {
             StartPoint = new Point(StartX, StartY);
             EndPoint = new Point(EndX, EndY);
         }
-        public Vector(Point StartPoint, Point EndPoint)
+        public Vectors(Point StartPoint, Point EndPoint)
         {
             this.StartPoint = StartPoint;
             this.EndPoint = EndPoint;
         }
         #endregion
 
-        public bool VectorsIntersect(Vector vektor)
+        public bool VectorsIntersect(Vectors vektor)
         {
             double s;               //s(x2 - x1) - t(x4 - x3) = x3 - x1     (1)
             double t;               //s(y2 - y1) - t(y4 - y3) = y3 - y1     (2)
@@ -75,7 +76,17 @@ namespace Z_Lab_TronOnDrugs_.Logic
             return Math.Sqrt(Math.Pow(EndPoint.X - StartPoint.X, 2) + Math.Pow(EndPoint.Y - StartPoint.Y, 2));
         }
 
-
-
+        public Geometry Wall
+        {
+            get
+            {
+                GeometryGroup wall = new GeometryGroup();
+                wall.Children.Add(new LineGeometry(new Point(0,0), new Point(0,10)));
+                //wall.Children.Add(new LineGeometry(StartPoint, EndPoint));
+                //wall.Children.Add(new LineGeometry(StartPoint, EndPoint));
+                //wall.Children.Add(new LineGeometry(StartPoint, EndPoint));
+                return wall;
+            }
+        }
     }
 }

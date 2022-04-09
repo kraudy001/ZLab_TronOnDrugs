@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace Z_Lab_TronOnDrugs_.Logic
 {
-    internal class Logic : IGameLogic
+    internal class GameLogic : IGameLogic
     {
         public List<Motor> Motors { get; set; }
 
-        public List<Vector> Vectors { get; set; }
+        public List<Vectors> Vectors { get; set; }
 
         public event EventHandler Change;
         public event EventHandler EndGame;
 
-        public Logic(List<Motor> motors)
+        public GameLogic(List<Motor> motors)
         {
             this.Motors = motors;
-            Vectors = new List<Vector>();
+            Vectors = new List<Vectors>();
         }
 
         public void Turn()
@@ -26,7 +26,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
             bool EndGameToken = false;
             foreach (Motor motor in Motors)
             {
-                Vector vector = motor.Move(Vectors, ref EndGameToken);
+                Vectors vector = motor.Move(Vectors, ref EndGameToken);
                 if (EndGameToken)
                 {
                     EndGame?.Invoke(null, null);
@@ -38,9 +38,5 @@ namespace Z_Lab_TronOnDrugs_.Logic
             }
             Change?.Invoke(null, null);
         }
-
-
-
-
     }
 }

@@ -8,7 +8,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         List<Motor> Motors { get; set; }
         public event EventHandler Change; 
         public event EventHandler EndGame; 
-        List<Vector> Vectors { get; set; }
+        List<Vectors> Vectors { get; set; }
         void Turn();
     }
 }

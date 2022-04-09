@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Media;
 
 namespace Z_Lab_TronOnDrugs_.Logic
 {
@@ -69,41 +70,41 @@ namespace Z_Lab_TronOnDrugs_.Logic
         #endregion
 
         #region Move
-        public Vector Move(List<Vector> vectors, ref bool EndGameToken) 
+        public Vectors Move(List<Vectors> vectors, ref bool EndGameToken) 
         {
             if(0>=orientation||90< orientation)
             {
                 //Placement = new Point(Placement.X - (int)Math.Sin(orientation) / speed, Placement.Y + (int)Math.Cos(orientation) / speed);
                 //werticalPlacement = werticalPlacement - (int)Math.Sin(orientation)/speed;
                 //horisontalPlacement = horisontalPlacement + (int)Math.Cos(orientation)/speed;
-                return PointChange(new Point(Placement.X - (int)Math.Sin(orientation) / speed, Placement.Y + (int)Math.Cos(orientation) / speed), vectors, EndGameToken);
+                return PointChange(new Point(Placement.X - (int)Math.Sin(orientation) / speed, Placement.Y + (int)Math.Cos(orientation) / speed), vectors, ref EndGameToken);
             }
             else if(90 >= orientation || 180 < orientation)
             {
                 //Placement = new Point(Placement.X - (int)Math.Sin(180 - orientation) / speed, Placement.Y - (int)Math.Cos(180 - orientation) / speed);
                 //werticalPlacement = werticalPlacement - (int)Math.Sin(180 - orientation) / speed;
                 //horisontalPlacement = horisontalPlacement - (int)Math.Cos(180 - orientation) / speed;
-                return PointChange(new Point(Placement.X - (int)Math.Sin(180 - orientation) / speed, Placement.Y - (int)Math.Cos(180 - orientation) / speed), vectors, EndGameToken);
+                return PointChange(new Point(Placement.X - (int)Math.Sin(180 - orientation) / speed, Placement.Y - (int)Math.Cos(180 - orientation) / speed), vectors, ref EndGameToken);
             }
             else if (180 >= orientation || 270 < orientation)
             {
                 //Placement = new Point(Placement.X + (int)Math.Sin(orientation - 180) / speed, Placement.Y - (int)Math.Cos(orientation - 180) / speed);
                 //werticalPlacement = werticalPlacement + (int)Math.Sin(orientation - 180) / speed;
                 //horisontalPlacement = horisontalPlacement - (int)Math.Cos(orientation - 180) / speed;
-                return PointChange(new Point(Placement.X + (int)Math.Sin(orientation - 180) / speed, Placement.Y - (int)Math.Cos(orientation - 180) / speed), vectors, EndGameToken);
+                return PointChange(new Point(Placement.X + (int)Math.Sin(orientation - 180) / speed, Placement.Y - (int)Math.Cos(orientation - 180) / speed), vectors, ref EndGameToken);
             }
             else if (270 >= orientation || 360 <= orientation)
             {
                 //werticalPlacement = werticalPlacement + (int)Math.Sin(360 - orientation) / speed;
                 //horisontalPlacement = horisontalPlacement + (int)Math.Cos(360 - orientation) / speed;
-                return PointChange(new Point(Placement.X + (int)Math.Sin(360 - orientation) / speed, Placement.Y + (int)Math.Cos(360 - orientation) / speed), vectors, EndGameToken);
+                return PointChange(new Point(Placement.X + (int)Math.Sin(360 - orientation) / speed, Placement.Y + (int)Math.Cos(360 - orientation) / speed), vectors, ref EndGameToken);
             }
             throw new Exception("Motor movement error");
         }
 
-        private Vector PointChange(Point point, List<Vector> vectors, ref bool EndGameToken)
+        private Vectors PointChange(Point point, List<Vectors> vectors, ref bool EndGameToken)
         {
-            Vector toReturn = new Vector(Placement, point);
+            Vectors toReturn = new Vectors(Placement, point);
             if (dasCounter == 1)
             {
 
@@ -124,12 +125,12 @@ namespace Z_Lab_TronOnDrugs_.Logic
         #endregion
 
         #region Collision detection
-        public bool Collision(List<Vector> vectors, Vector vector)
+        public bool Collision(List<Vectors> vectors, Vectors vector)
         {
 
-            foreach (Vector item in vectors)
+            foreach (Vectors item in vectors)
             {
-                if (speed * 2 < new Vector(item.StartPoint, Placement).DistanceBetweenEndPoints())
+                if (speed * 2 < new Vectors(item.StartPoint, Placement).DistanceBetweenEndPoints())
                 {
                     if (vector.VectorsIntersect(item))
                     {
@@ -142,5 +143,12 @@ namespace Z_Lab_TronOnDrugs_.Logic
         }
         #endregion
 
+        public Geometry Area
+        {
+            get
+            {
+                return new RectangleGeometry(new Rect(Placement, new Size(300, 300)));
+            }
+        }
     }
 }

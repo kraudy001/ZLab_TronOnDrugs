@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
+using Z_Lab_TronOnDrugs_.Logic;
 
 namespace Z_Lab_TronOnDrugs_
 {
@@ -20,9 +22,47 @@ namespace Z_Lab_TronOnDrugs_
     /// </summary>
     public partial class MainWindow : Window
     {
+        DispatcherTimer dt;
+        List<Motor> motorList = new List<Motor>();
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            motorList.Add(new Motor(100, 10, 100));
+            var logic = new GameLogic(motorList);
+            display.SetupLogic(logic);
+            display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
+            display.InvalidateVisual();
+            //dt = new DispatcherTimer();
+            //dt.Interval = TimeSpan.FromMilliseconds(10);
+            //dt.Tick += (sender, eventargs) =>
+            //{
+            //    logic.Turn();
+            //    display.InvalidateVisual();
+            //};
+            //dt.Start();
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Left)
+            {
+                motorList[0].TurnLeft();
+                display.InvalidateVisual();
+            }
+            else if (e.Key == Key.Right)
+            {
+                motorList[0].TurnRight();
+                display.InvalidateVisual();
+            }
         }
     }
 }
