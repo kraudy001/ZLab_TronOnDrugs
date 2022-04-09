@@ -10,7 +10,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         #region Property
         public Point Placement { get; set; }    // placement of objet (proportionally to grid)
 
-        int orientation { get; set; }
+        public int orientation { get; set; }
         #endregion
 
         #region Variable
@@ -149,7 +149,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         {
             get
             {
-                return new RectangleGeometry(new Rect(Placement, new Size(300, 300)));
+                return new RectangleGeometry(new Rect(Placement, new Size(200, 200)));
             }
         }
     }
