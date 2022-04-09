@@ -36,14 +36,14 @@ namespace Z_Lab_TronOnDrugs_
             display.SetupLogic(logic);
             display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
             display.InvalidateVisual();
-            //dt = new DispatcherTimer();
-            //dt.Interval = TimeSpan.FromMilliseconds(10);
-            //dt.Tick += (sender, eventargs) =>
-            //{
-            //    logic.Turn();
-            //    display.InvalidateVisual();
-            //};
-            //dt.Start();
+            dt = new DispatcherTimer();
+            dt.Interval = TimeSpan.FromMilliseconds(10);
+            dt.Tick += (sender, eventargs) =>
+            {
+                logic.Turn();
+                display.InvalidateVisual();
+            };
+            dt.Start();
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)

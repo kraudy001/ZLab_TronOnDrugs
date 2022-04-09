@@ -9,10 +9,12 @@ namespace Z_Lab_TronOnDrugs_.Logic
     {
         #region Property
         public Point Placement { get; set; }    // placement of objet (proportionally to grid)
+
+        int orientation { get; set; }
         #endregion
 
         #region Variable
-        int orientation;  //calculated in degree  (0-360)
+        //calculated in degree  (0-360)
 
         IAbility special;  //currentli usable ability
 
