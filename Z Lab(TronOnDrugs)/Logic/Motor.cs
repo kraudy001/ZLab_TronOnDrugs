@@ -35,11 +35,11 @@ namespace Z_Lab_TronOnDrugs_.Logic
         {
             if (orientation + turnAmount > 360)
             {
-                orientation = 360 - orientation + turnAmount;
+                orientation = 360 + orientation - turnAmount;
             }
             else
             {
-                orientation = orientation + turnAmount;
+                orientation = orientation - turnAmount;
             }
         }
 
@@ -47,11 +47,11 @@ namespace Z_Lab_TronOnDrugs_.Logic
         {
             if(orientation - turnAmount < 0)
             {
-                orientation = 360 + orientation - turnAmount;
+                orientation = 360 - orientation + turnAmount;
             }
             else
             {
-                orientation = orientation - turnAmount;
+                orientation = orientation + turnAmount;
             }
         }
         #endregion

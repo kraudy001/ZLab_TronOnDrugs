@@ -46,6 +46,7 @@ namespace Z_Lab_TronOnDrugs_.Renderer
                 {
                     drawingContext.PushTransform(new RotateTransform(item.orientation, item.Placement.X+100,item.Placement.Y+100));
                     drawingContext.DrawGeometry(MotorBrush, null, item.Area);
+                    drawingContext.Pop();
                 }
             }
         }
