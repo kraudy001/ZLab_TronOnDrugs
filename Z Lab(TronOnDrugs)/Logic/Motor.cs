@@ -21,7 +21,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         int dasCounter;
 
         private int turnAmount = 3; //fine tune needed
-        private int speed = 2;
+        private int speed = 5;
         #endregion
         public Motor(int wericalStart, int horisontalStart, int startingOrientation)
         {
@@ -33,7 +33,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         #region Turning
         public void TurnLeft()
         {
-            if (Orientation + turnAmount > 360)
+            if ((Orientation - turnAmount) < 0)
             {
                 Orientation = 360 + Orientation - turnAmount;
             }
@@ -45,7 +45,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
 
         public void TurnRight()
         {
-            if(Orientation - turnAmount < 0)
+            if(Orientation + turnAmount > 360)
             {
                 Orientation = 360 - Orientation + turnAmount;
             }
@@ -74,32 +74,31 @@ namespace Z_Lab_TronOnDrugs_.Logic
         #region Move
         public Vectors Move(List<Vectors> vectors, ref bool EndGameToken) 
         {
-            if(0>=Orientation||90< Orientation)
+            if (0 <= Orientation && 90 > Orientation)
             {
                 //Placement = new Point(Placement.X - (int)Math.Sin(orientation) / speed, Placement.Y + (int)Math.Cos(orientation) / speed);
                 //werticalPlacement = werticalPlacement - (int)Math.Sin(orientation)/speed;
                 //horisontalPlacement = horisontalPlacement + (int)Math.Cos(orientation)/speed;
-                return PointChange(new Point(Placement.X - (int)Math.Sin(Orientation) * speed, Placement.Y - (int)Math.Cos(Orientation) * speed), vectors, ref EndGameToken);
+                return PointChange(new Point(Placement.X - (int)(Math.Sin(Orientation) * speed), Placement.Y - (int)(Math.Cos(Orientation) * speed)), vectors, ref EndGameToken);
             }
-            else if(90 >= Orientation || 180 < Orientation)
+            else if(90 <= Orientation && 180 > Orientation)
             {
                 //Placement = new Point(Placement.X - (int)Math.Sin(180 - orientation) / speed, Placement.Y - (int)Math.Cos(180 - orientation) / speed);
                 //werticalPlacement = werticalPlacement - (int)Math.Sin(180 - orientation) / speed;
                 //horisontalPlacement = horisontalPlacement - (int)Math.Cos(180 - orientation) / speed;
-                return PointChange(new Point(Placement.X + (int)Math.Sin(180 - Orientation) * speed, Placement.Y - (int)Math.Cos(180 - Orientation) * speed), vectors, ref EndGameToken);
+                return PointChange(new Point(Placement.X + (int)(Math.Sin(180 - Orientation) * speed), Placement.Y - (int)(Math.Cos(180 - Orientation) * speed)), vectors, ref EndGameToken);
             }
-            else if (180 >= Orientation || 270 < Orientation)
+            else if (180 <= Orientation && 270 > Orientation)
             {
                 //Placement = new Point(Placement.X + (int)Math.Sin(orientation - 180) / speed, Placement.Y - (int)Math.Cos(orientation - 180) / speed);
-                //werticalPlacement = werticalPlacement + (int)Math.Sin(orientation - 180) / speed;
-                //horisontalPlacement = horisontalPlacement - (int)Math.Cos(orientation - 180) / speed;
-                return PointChange(new Point(Placement.X + (int)Math.Sin(Orientation - 180) * speed, Placement.Y + (int)Math.Cos(Orientation - 180) * speed), vectors, ref EndGameToken);
+                
+                return PointChange(new Point(Placement.X + (int)(Math.Sin(Orientation - 180) * speed), Placement.Y + (int)(Math.Cos(Orientation - 180) * speed)), vectors, ref EndGameToken);
             }
-            else if (270 >= Orientation || 360 <= Orientation)
+            else if (270 <= Orientation && 360 >= Orientation)
             {
                 //werticalPlacement = werticalPlacement + (int)Math.Sin(360 - orientation) / speed;
                 //horisontalPlacement = horisontalPlacement + (int)Math.Cos(360 - orientation) / speed;
-                return PointChange(new Point(Placement.X - (int)Math.Sin(360 - Orientation) * speed, Placement.Y + (int)Math.Cos(360 - Orientation) * speed), vectors, ref EndGameToken);
+                return PointChange(new Point(Placement.X - (int)(Math.Sin(360 - Orientation) * speed), Placement.Y + (int)(Math.Cos(360 - Orientation) * speed)), vectors, ref EndGameToken);
             }
             throw new Exception("Motor movement error");
         }

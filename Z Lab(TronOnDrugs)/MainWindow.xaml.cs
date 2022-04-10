@@ -31,7 +31,7 @@ namespace Z_Lab_TronOnDrugs_
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            motorList.Add(new Motor(100, 100, 0));
+            motorList.Add(new Motor(100, 100, 200));
             var logic = new GameLogic(motorList);
             display.SetupLogic(logic);
             display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
