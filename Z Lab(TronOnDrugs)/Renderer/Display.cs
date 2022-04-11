@@ -48,6 +48,11 @@ namespace Z_Lab_TronOnDrugs_.Renderer
                     drawingContext.DrawGeometry(MotorBrush, null, item.Area);
                     drawingContext.Pop();
                 }
+
+                foreach (var item in logic.Vectors)
+                {
+                    drawingContext.DrawGeometry(Brushes.Red, null, item.Wall);
+                }
             }
         }
     }

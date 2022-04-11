@@ -81,10 +81,10 @@ namespace Z_Lab_TronOnDrugs_.Logic
             get
             {
                 GeometryGroup wall = new GeometryGroup();
-                wall.Children.Add(new LineGeometry(new Point(0,0), new Point(0,10)));
-                //wall.Children.Add(new LineGeometry(StartPoint, EndPoint));
-                //wall.Children.Add(new LineGeometry(StartPoint, EndPoint));
-                //wall.Children.Add(new LineGeometry(StartPoint, EndPoint));
+                wall.Children.Add(new RectangleGeometry(new Rect(0,0,800,5)));
+                wall.Children.Add(new RectangleGeometry(new Rect(0, 0, 5, 450)));
+                wall.Children.Add(new RectangleGeometry(new Rect(800-20, 0, 5, 450)));
+                wall.Children.Add(new RectangleGeometry(new Rect(0, 450-45, 800, 5)));
                 return wall;
             }
         }
