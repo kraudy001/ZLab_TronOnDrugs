@@ -15,10 +15,11 @@ namespace Z_Lab_TronOnDrugs_.Logic
         public event EventHandler Change;
         public event EventHandler EndGame;
 
-        public GameLogic(List<Motor> motors)
+        public GameLogic(List<Motor> motors, double displayWidth, double displayHeight)
         {
             this.Motors = motors;
             Vectors = new List<Vectors>();
+            Vectors.Add(new Vectors(displayWidth, displayHeight, 5));
         }
 
         public void Turn()

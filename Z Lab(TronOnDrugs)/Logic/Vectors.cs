@@ -10,6 +10,10 @@ namespace Z_Lab_TronOnDrugs_.Logic
 {
     public class Vectors
     {
+        private double displayWidth;
+        private double displayHeight;
+        private double lineWidth;
+
         public Point StartPoint;
         public Point EndPoint;
         public string sorce;
@@ -24,6 +28,12 @@ namespace Z_Lab_TronOnDrugs_.Logic
         {
             this.StartPoint = StartPoint;
             this.EndPoint = EndPoint;
+        }
+        public Vectors(double displayWidth, double displayHeight, double lineWidth)
+        {
+            this.displayWidth = displayWidth;
+            this.displayHeight = displayHeight;
+            this.lineWidth = lineWidth;
         }
         #endregion
 
@@ -81,10 +91,10 @@ namespace Z_Lab_TronOnDrugs_.Logic
             get
             {
                 GeometryGroup wall = new GeometryGroup();
-                wall.Children.Add(new RectangleGeometry(new Rect(0,0,800,5)));
-                wall.Children.Add(new RectangleGeometry(new Rect(0, 0, 5, 450)));
-                wall.Children.Add(new RectangleGeometry(new Rect(800-20, 0, 5, 450)));
-                wall.Children.Add(new RectangleGeometry(new Rect(0, 450-45, 800, 5)));
+                wall.Children.Add(new RectangleGeometry(new Rect(0,0,displayWidth, lineWidth)));
+                wall.Children.Add(new RectangleGeometry(new Rect(0, 0, lineWidth, displayHeight)));
+                wall.Children.Add(new RectangleGeometry(new Rect(displayWidth-lineWidth, 0, lineWidth, displayHeight)));
+                wall.Children.Add(new RectangleGeometry(new Rect(0, displayHeight-lineWidth, displayWidth, lineWidth)));
                 return wall;
             }
         }
