@@ -24,6 +24,7 @@ namespace Z_Lab_TronOnDrugs_
     {
         DispatcherTimer dt;
         List<Motor> motorList = new List<Motor>();
+        GameLogic logic;
         public MainWindow()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace Z_Lab_TronOnDrugs_
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             motorList.Add(new Motor(100, 100, 0));
-            var logic = new GameLogic(motorList);
+            logic = new GameLogic(motorList, grid.ActualWidth, grid.ActualHeight);
             display.SetupLogic(logic);
             display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
             display.InvalidateVisual();
@@ -48,6 +49,8 @@ namespace Z_Lab_TronOnDrugs_
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
+            logic = new GameLogic(motorList, grid.ActualWidth, grid.ActualHeight);
+            display.SetupLogic(logic);
             display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
         }
 
