@@ -38,7 +38,7 @@ namespace Z_Lab_TronOnDrugs_
             display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
             display.InvalidateVisual();
             dt = new DispatcherTimer();
-            dt.Interval = TimeSpan.FromMilliseconds(100);
+            dt.Interval = TimeSpan.FromMilliseconds(4);
             dt.Tick += (sender, eventargs) =>
             {
                 logic.Turn();

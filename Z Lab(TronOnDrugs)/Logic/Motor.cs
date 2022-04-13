@@ -21,8 +21,8 @@ namespace Z_Lab_TronOnDrugs_.Logic
 
         int dasCounter;
 
-        private int turnAmount = 3; //fine tune needed
-        private int speed = 5;
+        private int turnAmount = 5; //fine tune needed
+        private int speed = 2;
         #endregion
         public Motor(int wericalStart, int horisontalStart, int startingOrientation)
         {
@@ -90,6 +90,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
                 dasCounter--;
                 Placement = point;
                 EndGameToken = Collision(vectors,toReturn);
+                toReturn.sorce = "MotorVector";
                 return toReturn;
                 
             }
@@ -106,18 +107,19 @@ namespace Z_Lab_TronOnDrugs_.Logic
         #region Collision detection
         public bool Collision(List<Vectors> vectors, Vectors vector)
         {
-
-            foreach (Vectors item in vectors)
+            if(vectors.Count > 1)
             {
-                if (speed * 2 < new Vectors(item.StartPoint, Placement).DistanceBetweenEndPoints())
+                foreach (Vectors item in vectors)
                 {
-                    if (vector.VectorsIntersect(item))
+                    if (speed * 2 < new Vectors(item.StartPoint, Placement).DistanceBetweenEndPoints())
                     {
-                        return true;
+                        if (vector.VectorsIntersect(item))
+                        {
+                            return true;
+                        }
                     }
                 }
             }
-
             return false;
         }
         #endregion

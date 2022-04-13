@@ -49,6 +49,8 @@ namespace Z_Lab_TronOnDrugs_.Renderer
                     drawingContext.Pop();
                 }
 
+                // a motorok altal huzott vektoroknak a sorc erteke == "MotorVector"
+
                 foreach (var item in logic.Vectors)
                 {
                     drawingContext.DrawGeometry(Brushes.Red, null, item.Wall);
