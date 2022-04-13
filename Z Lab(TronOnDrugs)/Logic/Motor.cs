@@ -128,7 +128,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         {
             get
             {
-                return new RectangleGeometry(new Rect(Placement, new Size(200, 200)));
+                return new RectangleGeometry(new Rect(Placement, new Size(50,50)));
             }
         }
     }
