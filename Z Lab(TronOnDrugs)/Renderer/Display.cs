@@ -54,6 +54,7 @@ namespace Z_Lab_TronOnDrugs_.Renderer
                 foreach (var item in logic.Vectors)
                 {
                     drawingContext.DrawGeometry(Brushes.Red, null, item.Wall);
+                    drawingContext.DrawGeometry(Brushes.SkyBlue, null, item.Lines);
                 }
             }
         }
