@@ -44,7 +44,7 @@ namespace Z_Lab_TronOnDrugs_.Renderer
 
                 foreach (var item in logic.Motors)
                 {
-                    drawingContext.PushTransform(new RotateTransform(item.Orientation, item.Placement.X+25,item.Placement.Y+25));
+                    drawingContext.PushTransform(new RotateTransform(item.Orientation, item.Placement.X,item.Placement.Y));
                     drawingContext.DrawGeometry(MotorBrush, null, item.Area);
                     drawingContext.Pop();
                 }
