@@ -98,7 +98,6 @@ namespace Z_Lab_TronOnDrugs_.Logic
                 return wall;
             }
         }
-
         public Geometry Lines
         {
             get

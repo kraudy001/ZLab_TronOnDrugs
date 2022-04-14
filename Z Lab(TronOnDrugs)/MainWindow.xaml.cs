@@ -32,13 +32,13 @@ namespace Z_Lab_TronOnDrugs_
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            motorList.Add(new Motor(100, 100, 0));
+            motorList.Add(new Motor(100, 500, 0));
             logic = new GameLogic(motorList, grid.ActualWidth, grid.ActualHeight);
             display.SetupLogic(logic);
             display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
             display.InvalidateVisual();
             dt = new DispatcherTimer();
-            dt.Interval = TimeSpan.FromMilliseconds(4);
+            dt.Interval = TimeSpan.FromMilliseconds(10);
             dt.Tick += (sender, eventargs) =>
             {
                 logic.Turn();

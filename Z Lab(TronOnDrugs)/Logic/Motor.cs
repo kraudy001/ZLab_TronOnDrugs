@@ -21,8 +21,8 @@ namespace Z_Lab_TronOnDrugs_.Logic
 
         int dasCounter;
 
-        private int turnAmount = 5; //fine tune needed
-        private int speed = 2;
+        private int turnAmount = 10; //fine tune needed
+        private int speed = 10;
         #endregion
         public Motor(int wericalStart, int horisontalStart, int startingOrientation)
         {
@@ -128,7 +128,6 @@ namespace Z_Lab_TronOnDrugs_.Logic
         {
             get
             {
-                //return new RectangleGeometry(new Rect(Placement, new Size(50,50)));
                 return new EllipseGeometry(Placement,50,50);
             }
         }
