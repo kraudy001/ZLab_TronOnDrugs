@@ -33,7 +33,7 @@ namespace Z_Lab_TronOnDrugs_
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             motorList.Add(new Motor(100, 500, 0));
-            motorList.Add(new Motor(500, 500, 0));
+            motorList.Add(new Motor(1000, 500, 0));
             //motorList.Add(new Motor(900, 500, 0));
             logic = new GameLogic(motorList, grid.ActualWidth, grid.ActualHeight);
             display.SetupLogic(logic);

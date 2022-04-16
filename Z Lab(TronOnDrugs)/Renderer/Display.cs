@@ -28,6 +28,14 @@ namespace Z_Lab_TronOnDrugs_.Renderer
             this.logic.Change += (sender, eventargs) => this.InvalidateVisual();
         }
 
+        public Brush BackgroundBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "Background.png"), UriKind.RelativeOrAbsolute)));
+            }
+        }
+
         public Brush BlueMotorBrush
         {
             get
@@ -65,7 +73,7 @@ namespace Z_Lab_TronOnDrugs_.Renderer
             base.OnRender(drawingContext);
             if (logic != null && area.Width > 0 && area.Height > 0)
             {
-                drawingContext.DrawRectangle(Brushes.Black, null, new Rect(0, 0, area.Width, area.Height));
+                drawingContext.DrawRectangle(BackgroundBrush, null, new Rect(0, 0, area.Width, area.Height));
 
                 foreach (var motor in logic.Motors)
                 {
@@ -89,8 +97,8 @@ namespace Z_Lab_TronOnDrugs_.Renderer
 
                 foreach (var vector in logic.Vectors)
                 {
-                    drawingContext.DrawGeometry(RandomColor, null, vector.Wall);
                     drawingContext.DrawGeometry(RandomColor, null, vector.Lines);
+                    drawingContext.DrawGeometry(RandomColor, null, vector.Barriers);
                 }
             }
         }

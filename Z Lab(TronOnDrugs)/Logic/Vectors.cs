@@ -86,23 +86,33 @@ namespace Z_Lab_TronOnDrugs_.Logic
             return Math.Sqrt(Math.Pow(EndPoint.X - StartPoint.X, 2) + Math.Pow(EndPoint.Y - StartPoint.Y, 2));
         }
 
-        public Geometry Wall
-        {
-            get
-            {
-                GeometryGroup wall = new GeometryGroup();
-                wall.Children.Add(new RectangleGeometry(new Rect(0,0,displayWidth, lineWidth)));
-                wall.Children.Add(new RectangleGeometry(new Rect(0, 0, lineWidth, displayHeight)));
-                wall.Children.Add(new RectangleGeometry(new Rect(displayWidth-lineWidth, 0, lineWidth, displayHeight)));
-                wall.Children.Add(new RectangleGeometry(new Rect(0, displayHeight-lineWidth, displayWidth, lineWidth)));
-                return wall;
-            }
-        }
         public Geometry Lines
         {
             get
             {
-                return new RectangleGeometry(new Rect(StartPoint, EndPoint));
+                GeometryGroup lines = new GeometryGroup();
+                //walls
+                lines.Children.Add(new RectangleGeometry(new Rect(0, 0, displayWidth, lineWidth)));
+                lines.Children.Add(new RectangleGeometry(new Rect(0, 0, lineWidth, displayHeight)));
+                lines.Children.Add(new RectangleGeometry(new Rect(displayWidth - lineWidth, 0, lineWidth, displayHeight)));
+                lines.Children.Add(new RectangleGeometry(new Rect(0, displayHeight - lineWidth, displayWidth, lineWidth)));
+                //lines
+                lines.Children.Add(new RectangleGeometry(new Rect(StartPoint, EndPoint)));
+                return lines;
+            }
+        }
+        public Geometry Barriers
+        {
+            get
+            {
+                GeometryGroup barriers = new GeometryGroup();
+                barriers.Children.Add(new RectangleGeometry(new Rect(150, 150, displayWidth / 4, lineWidth)));
+                barriers.Children.Add(new RectangleGeometry(new Rect(300, 500, displayWidth / 6, lineWidth)));
+                barriers.Children.Add(new RectangleGeometry(new Rect(1600, 600, displayWidth / 10, lineWidth)));
+                barriers.Children.Add(new RectangleGeometry(new Rect(1000, 70, lineWidth, displayHeight / 8)));
+                barriers.Children.Add(new RectangleGeometry(new Rect(1200, 400, lineWidth, displayHeight / 10)));
+                barriers.Children.Add(new RectangleGeometry(new Rect(800, 600, lineWidth, displayHeight / 5)));
+                return barriers;
             }
         }
     }
