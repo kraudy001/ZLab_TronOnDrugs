@@ -5,14 +5,27 @@
     <TargetFramework>net5.0-windows</TargetFramework>
     <RootNamespace>Z_Lab_TronOnDrugs_</RootNamespace>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Images\icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\icon.ico" />
     <None Remove="Images\tron-blue.bmp" />
+    <None Remove="Images\tron-buggie.bmp" />
+    <None Remove="Images\tron-yellow.bmp" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Images\icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\tron-blue.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\tron-buggie.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\tron-yellow.bmp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

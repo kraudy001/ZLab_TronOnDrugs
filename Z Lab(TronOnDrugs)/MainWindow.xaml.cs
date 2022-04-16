@@ -33,12 +33,14 @@ namespace Z_Lab_TronOnDrugs_
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             motorList.Add(new Motor(100, 500, 0));
+            motorList.Add(new Motor(500, 500, 0));
+            //motorList.Add(new Motor(900, 500, 0));
             logic = new GameLogic(motorList, grid.ActualWidth, grid.ActualHeight);
             display.SetupLogic(logic);
             display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
             display.InvalidateVisual();
             dt = new DispatcherTimer();
-            dt.Interval = TimeSpan.FromMilliseconds(10);
+            dt.Interval = TimeSpan.FromMilliseconds(100);
             dt.Tick += (sender, eventargs) =>
             {
                 logic.Turn();
@@ -64,6 +66,26 @@ namespace Z_Lab_TronOnDrugs_
             else if (e.Key == Key.Right)
             {
                 motorList[0].TurnRight();
+                display.InvalidateVisual();
+            }
+            else if (e.Key == Key.A)
+            {
+                motorList[1].TurnLeft();
+                display.InvalidateVisual();
+            }
+            else if (e.Key == Key.D)
+            {
+                motorList[1].TurnRight();
+                display.InvalidateVisual();
+            }
+              else if (e.Key == Key.J)
+            {
+                motorList[2].TurnLeft();
+                display.InvalidateVisual();
+            }
+            else if (e.Key == Key.L)
+            {
+                motorList[2].TurnRight();
                 display.InvalidateVisual();
             }
         }

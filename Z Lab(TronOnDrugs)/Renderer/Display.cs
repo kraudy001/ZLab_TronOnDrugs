@@ -13,6 +13,7 @@ namespace Z_Lab_TronOnDrugs_.Renderer
 {
     internal class Display : FrameworkElement
     {
+        Random rand = new Random();
         Size area;
         IGameLogic logic;
         public void SetupSizes(Size area)
@@ -27,13 +28,37 @@ namespace Z_Lab_TronOnDrugs_.Renderer
             this.logic.Change += (sender, eventargs) => this.InvalidateVisual();
         }
 
-        public Brush MotorBrush
+        public Brush BlueMotorBrush
         {
             get
             {
                 return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "tron-blue.bmp"), UriKind.RelativeOrAbsolute)));
             }
         }
+
+        public Brush YellowMotorBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "tron-yellow.bmp"), UriKind.RelativeOrAbsolute)));
+            }
+        }
+
+        public Brush BuggieBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "tron-buggie.bmp"), UriKind.RelativeOrAbsolute)));
+            }
+        }
+
+        public Brush RandomColor
+        {
+            get
+            {
+                return new SolidColorBrush(Color.FromRgb((byte)rand.Next(0, 256), (byte)rand.Next(0, 256), (byte)rand.Next(0, 256)));
+            }
+        } 
 
         protected override void OnRender(DrawingContext drawingContext)
         {
@@ -42,19 +67,30 @@ namespace Z_Lab_TronOnDrugs_.Renderer
             {
                 drawingContext.DrawRectangle(Brushes.Black, null, new Rect(0, 0, area.Width, area.Height));
 
-                foreach (var item in logic.Motors)
+                foreach (var motor in logic.Motors)
                 {
-                    drawingContext.PushTransform(new RotateTransform(item.Orientation, item.Placement.X,item.Placement.Y));
-                    drawingContext.DrawGeometry(MotorBrush, null, item.Area);
+                    drawingContext.PushTransform(new RotateTransform(motor.Orientation, motor.Placement.X, motor.Placement.Y));
+                    if (motor == logic.Motors[0])
+                    {
+                        drawingContext.DrawGeometry(BlueMotorBrush, null, motor.Area);
+                    }
+                    else if (motor == logic.Motors[1])
+                    {
+                        drawingContext.DrawGeometry(YellowMotorBrush, null, motor.Area);
+                    }
+                    else if (motor == logic.Motors[2])
+                    {
+                        drawingContext.DrawGeometry(BuggieBrush, null, motor.Area);
+                    }
                     drawingContext.Pop();
                 }
 
                 // a motorok altal huzott vektoroknak a sorc erteke == "MotorVector"
 
-                foreach (var item in logic.Vectors)
+                foreach (var vector in logic.Vectors)
                 {
-                    drawingContext.DrawGeometry(Brushes.Red, null, item.Wall);
-                    drawingContext.DrawGeometry(Brushes.SkyBlue, null, item.Lines);
+                    drawingContext.DrawGeometry(RandomColor, null, vector.Wall);
+                    drawingContext.DrawGeometry(RandomColor, null, vector.Lines);
                 }
             }
         }
