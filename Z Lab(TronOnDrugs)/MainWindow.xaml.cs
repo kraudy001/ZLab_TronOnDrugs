@@ -78,7 +78,7 @@ namespace Z_Lab_TronOnDrugs_
                 motorList[1].TurnRight();
                 display.InvalidateVisual();
             }
-              else if (e.Key == Key.J)
+            else if (e.Key == Key.J)
             {
                 motorList[2].TurnLeft();
                 display.InvalidateVisual();
@@ -87,6 +87,15 @@ namespace Z_Lab_TronOnDrugs_
             {
                 motorList[2].TurnRight();
                 display.InvalidateVisual();
+            }
+            else if (e.Key == Key.Escape)
+            {
+                dt.Stop();
+                MessageBoxResult result = MessageBox.Show("Ide kell majd egy rendes pause menü!");
+                if (MessageBoxResult.OK == result)
+                {
+                    dt.Start();
+                }
             }
         }
     }
