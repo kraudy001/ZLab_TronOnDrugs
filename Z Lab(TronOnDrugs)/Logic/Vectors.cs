@@ -86,6 +86,14 @@ namespace Z_Lab_TronOnDrugs_.Logic
             return Math.Sqrt(Math.Pow(EndPoint.X - StartPoint.X, 2) + Math.Pow(EndPoint.Y - StartPoint.Y, 2));
         }
 
+        public Size LineSize
+        {
+            get
+            {
+                return new Size(5, 5); //preferably same numbers
+            }
+        }
+
         public Geometry Lines
         {
             get
@@ -97,7 +105,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
                 lines.Children.Add(new RectangleGeometry(new Rect(displayWidth - lineWidth, 0, lineWidth, displayHeight)));
                 lines.Children.Add(new RectangleGeometry(new Rect(0, displayHeight - lineWidth, displayWidth, lineWidth)));
                 //lines
-                lines.Children.Add(new RectangleGeometry(new Rect(StartPoint, EndPoint)));
+                lines.Children.Add(new RectangleGeometry(new Rect(StartPoint,LineSize)));
                 return lines;
             }
         }
