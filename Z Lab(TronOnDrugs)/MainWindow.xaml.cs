@@ -25,6 +25,7 @@ namespace Z_Lab_TronOnDrugs_
         DispatcherTimer dt;
         List<Motor> motorList = new List<Motor>();
         GameLogic logic;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -91,8 +92,9 @@ namespace Z_Lab_TronOnDrugs_
             else if (e.Key == Key.Escape)
             {
                 dt.Stop();
-                MessageBoxResult result = MessageBox.Show("Ide kell majd egy rendes pause menü!");
-                if (MessageBoxResult.OK == result)
+                PauseMenu pm = new PauseMenu();
+                pm.ShowDialog();
+                if (pm.DialogResult == true)
                 {
                     dt.Start();
                 }
