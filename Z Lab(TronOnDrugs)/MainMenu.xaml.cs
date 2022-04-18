@@ -37,13 +37,13 @@ namespace Z_Lab_TronOnDrugs_
         private void Play_Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mw = new MainWindow();
-            mw.ShowDialog();
+            mw.Show();
         }
 
-        private void Options_Button_Click(object sender, RoutedEventArgs e)
+        private void Controls_Button_Click(object sender, RoutedEventArgs e)
         {
             ControlsWindow cw = new ControlsWindow();
-            cw.ShowDialog();
+            cw.Show();
         }
     }
 }
