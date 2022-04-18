@@ -29,7 +29,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         {
             this.Placement = new Point( wericalStart, horisontalStart);
             this.orientation = startingOrientation;
-            dasCounter = 1;
+            dasCounter = 10;
         }
 
         #region Turning
@@ -85,7 +85,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         private Vectors PointChange(Point point, List<Vectors> vectors, ref bool EndGameToken)
         {
             Vectors toReturn = new Vectors(Placement, point);
-            if (dasCounter == 1)
+            if (dasCounter > 5)
             {
 
                 dasCounter--;
@@ -95,9 +95,13 @@ namespace Z_Lab_TronOnDrugs_.Logic
                 return toReturn;
                 
             }
-            else
+            else 
             {
-                dasCounter = 1;
+                dasCounter--;
+                if (dasCounter == 0)
+                {
+                    dasCounter = 10;
+                }
                 Placement = point;
                 EndGameToken = Collision(vectors, toReturn);
                 return null;
