@@ -6,10 +6,12 @@
     <RootNamespace>Z_Lab_TronOnDrugs_</RootNamespace>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>Images\icon.ico</ApplicationIcon>
+    <StartupObject>Z_Lab_TronOnDrugs_.App</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Images\Background.png" />
+    <None Remove="Images\controls.png" />
     <None Remove="Images\icon.ico" />
     <None Remove="Images\tron-blue.bmp" />
     <None Remove="Images\tron-buggie.bmp" />
@@ -18,6 +20,9 @@
 
   <ItemGroup>
     <Content Include="Images\Background.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\controls.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\icon.ico">

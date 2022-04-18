@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Z_Lab_TronOnDrugs_"
         xmlns:render="clr-namespace:Z_Lab_TronOnDrugs_.Renderer"
         mc:Ignorable="d"
-        Title="Tron On Drugs" Height="450" Width="800" Loaded="Window_Loaded" SizeChanged="Window_SizeChanged" KeyDown="Window_KeyDown" WindowState="Maximized">
+        Title="Tron On Drugs" Height="450" Width="800" Loaded="Window_Loaded" SizeChanged="Window_SizeChanged" KeyDown="Window_KeyDown" WindowState="Maximized" WindowStyle="None">
     <Grid x:Name="grid">
         <render:Display x:Name="display"/>
     </Grid>

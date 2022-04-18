@@ -15,24 +15,17 @@ using System.Windows.Shapes;
 namespace Z_Lab_TronOnDrugs_
 {
     /// <summary>
-    /// Interaction logic for PauseMenu.xaml
+    /// Interaction logic for ControlsWindow.xaml
     /// </summary>
-    public partial class PauseMenu : Window
+    public partial class ControlsWindow : Window
     {
-        public PauseMenu()
+        public ControlsWindow()
         {
             InitializeComponent();
         }
 
-        private void Resume_Button_Click(object sender, RoutedEventArgs e)
+        private void Back_Button_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = true;
-            Close();
-        }
-
-        private void Exit_Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.DialogResult = false;
             Close();
         }
     }

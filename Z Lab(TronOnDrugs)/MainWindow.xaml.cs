@@ -98,6 +98,10 @@ namespace Z_Lab_TronOnDrugs_
                 {
                     dt.Start();
                 }
+                else if (pm.DialogResult == false)
+                {
+                    Close();
+                }
             }
         }
     }

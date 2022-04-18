@@ -15,22 +15,22 @@ using System.Windows.Shapes;
 namespace Z_Lab_TronOnDrugs_
 {
     /// <summary>
-    /// Interaction logic for PauseMenu.xaml
+    /// Interaction logic for CloseWindow.xaml
     /// </summary>
-    public partial class PauseMenu : Window
+    public partial class CloseWindow : Window
     {
-        public PauseMenu()
+        public CloseWindow()
         {
             InitializeComponent();
         }
 
-        private void Resume_Button_Click(object sender, RoutedEventArgs e)
+        private void Yes_Button_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = true;
             Close();
         }
 
-        private void Exit_Button_Click(object sender, RoutedEventArgs e)
+        private void No_Button_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = false;
             Close();
