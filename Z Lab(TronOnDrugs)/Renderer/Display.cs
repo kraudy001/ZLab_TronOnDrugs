@@ -13,6 +13,8 @@ namespace Z_Lab_TronOnDrugs_.Renderer
 {
     internal class Display : FrameworkElement
     {
+        static public bool medium;
+        static public bool hard;
         Random rand = new Random();
         Size area;
         IGameLogic logic;
@@ -98,7 +100,14 @@ namespace Z_Lab_TronOnDrugs_.Renderer
                 foreach (var vector in logic.Vectors)
                 {
                     drawingContext.DrawGeometry(RandomColor, null, vector.Lines);
-                    drawingContext.DrawGeometry(RandomColor, null, vector.Barriers);
+                    if (medium == true)
+                    {
+                        drawingContext.DrawGeometry(RandomColor, null, vector.MediumBarriers);
+                    }
+                    else if (hard == true)
+                    {
+                        drawingContext.DrawGeometry(RandomColor, null, vector.HardBarriers);
+                    }
                 }
             }
         }
