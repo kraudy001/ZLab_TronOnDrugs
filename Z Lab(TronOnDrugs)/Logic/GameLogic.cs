@@ -15,10 +15,15 @@ namespace Z_Lab_TronOnDrugs_.Logic
         public event EventHandler Change;
         public event EventHandler EndGame;
 
+        double displayWidth;
+        double displayHeight;
+
         public GameLogic(List<Motor> motors, double displayWidth, double displayHeight)
         {
             this.Motors = motors;
             Vectors = new List<Vectors>();
+            this.displayWidth = displayWidth;
+            this.displayHeight = displayHeight;
             Vectors.Add(new Vectors(displayWidth, displayHeight, 5));
         }
 
@@ -27,7 +32,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
             bool EndGameToken = false;
             foreach (Motor motor in Motors)
             {
-                Vectors vector = motor.Move(Vectors, ref EndGameToken);
+                Vectors vector = motor.Move(Vectors, ref EndGameToken, displayWidth, displayHeight);
                 if (EndGameToken)
                 {
                     EndGame?.Invoke(null, null);
@@ -38,6 +43,12 @@ namespace Z_Lab_TronOnDrugs_.Logic
                 }
             }
             Change?.Invoke(null, null);
+        }
+
+        public void SizeChange(double displayWidth, double displayHeight)
+        {
+            this.displayWidth = displayWidth;
+            this.displayHeight = displayHeight;
         }
     }
 }
