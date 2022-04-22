@@ -51,5 +51,12 @@ namespace Z_Lab_TronOnDrugs_
             mw.Show();
             Close();
         }
+
+        private void Back_Button_Click(object sender, RoutedEventArgs e)
+        {
+            PlayerNum pn = new PlayerNum();
+            pn.Show();
+            Close();
+        }
     }
 }
