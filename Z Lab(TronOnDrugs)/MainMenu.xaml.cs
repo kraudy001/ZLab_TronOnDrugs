@@ -36,8 +36,8 @@ namespace Z_Lab_TronOnDrugs_
 
         private void Play_Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mw = new MainWindow();
-            mw.Show();
+            PlayerNum pn = new PlayerNum();
+            pn.Show();
         }
 
         private void Controls_Button_Click(object sender, RoutedEventArgs e)
