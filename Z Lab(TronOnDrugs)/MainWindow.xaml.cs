@@ -68,7 +68,7 @@ namespace Z_Lab_TronOnDrugs_
 
         private void Logic_EndGame(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            int val = 5;
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
