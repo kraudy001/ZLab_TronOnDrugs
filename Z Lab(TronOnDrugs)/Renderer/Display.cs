@@ -109,6 +109,11 @@ namespace Z_Lab_TronOnDrugs_.Renderer
                         drawingContext.DrawGeometry(RandomColor, null, vector.HardBarriers);
                     }
                 }
+
+                foreach (var ability in logic.Abilities)
+                {
+                    drawingContext.DrawGeometry(Brushes.Red, null, ability.Ability);
+                }
             }
         }
     }
