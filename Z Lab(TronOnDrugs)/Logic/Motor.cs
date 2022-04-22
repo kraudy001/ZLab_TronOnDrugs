@@ -24,6 +24,8 @@ namespace Z_Lab_TronOnDrugs_.Logic
 
         private int turnAmount = 10; //fine tune needed
         private int speed = 10;
+
+        double radiusX = 50, radiusY = 50;
         #endregion
         public Motor(int wericalStart, int horisontalStart, int startingOrientation)
         {
@@ -114,15 +116,20 @@ namespace Z_Lab_TronOnDrugs_.Logic
         {
             if(vectors.Count > 1)
             {
-                foreach (Vectors item in vectors)
+                foreach (Vectors VectorToCheck in vectors)
                 {
-                    if (speed * 2 < new Vectors(item.StartPoint, Placement).DistanceBetweenEndPoints())
+                    if (radiusX < new Vectors(VectorToCheck.StartPoint, Placement).DistanceBetweenEndPoints())
                     {
-                        if (vector.VectorsIntersect(item))
+                        //return true;
+                        if (vector.VectorsIntersect(VectorToCheck))
                         {
                             return true;
                         }
                     }
+                    //else if(radiusX < new Vectors(VectorToCheck.EndPoint, Placement).DistanceBetweenEndPoints())
+                    //{
+                    //    return true;
+                    //}
                 }
             }
             return false;
@@ -133,7 +140,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         {
             get
             {
-                return new EllipseGeometry(Placement,50,50);
+                return new EllipseGeometry(Placement,radiusX,radiusY);
             }
         }
     }

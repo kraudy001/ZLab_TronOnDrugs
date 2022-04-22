@@ -39,6 +39,23 @@ namespace Z_Lab_TronOnDrugs_.Logic
 
         public bool VectorsIntersect(Vectors vektor)
         {
+            if (this.StartPoint == vektor.StartPoint)
+            {
+                return true;
+            }
+            if(this.StartPoint == vektor.EndPoint)
+            {
+                return true;
+            }
+            if(this.EndPoint == vektor.EndPoint)
+            {
+                return true;
+            }
+            if(this.EndPoint == vektor.StartPoint)
+            {
+                return true;
+            }
+
             double s;               //s(x2 - x1) - t(x4 - x3) = x3 - x1     (1)
             double t;               //s(y2 - y1) - t(y4 - y3) = y3 - y1     (2)
 

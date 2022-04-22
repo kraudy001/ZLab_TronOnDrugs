@@ -37,6 +37,7 @@ namespace Z_Lab_TronOnDrugs_
             //motorList.Add(new Motor(1000, 500, 0));
             //motorList.Add(new Motor(900, 500, 0));
             logic = new GameLogic(motorList, grid.ActualWidth, grid.ActualHeight);
+            logic.EndGame += Logic_EndGame;
             display.SetupLogic(logic);
             display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
             display.InvalidateVisual();
@@ -48,6 +49,11 @@ namespace Z_Lab_TronOnDrugs_
                 display.InvalidateVisual();
             };
             dt.Start();
+        }
+
+        private void Logic_EndGame(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
