@@ -8,6 +8,11 @@
         Title="PlayerNum" Height="450" Width="800" WindowState="Maximized" WindowStyle="None">
     <Border BorderBrush="SkyBlue" BorderThickness="1">
         <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
@@ -18,23 +23,26 @@
                 <ImageBrush ImageSource="\Images\Background.png"/>
             </Grid.Background>
 
-            <Grid Grid.Column="0">
+            <Grid Grid.Column="0" Grid.RowSpan="3">
                 <Button Grid.Column="0" Click="Player1_Button_Click" Width="400" Height="600" Padding="10" Background="Transparent" BorderBrush="Transparent">
                     <Image Source="\Images\one.png"/>
                 </Button>
             </Grid>
 
-            <Grid Grid.Column="1">
+            <Grid Grid.Column="1" Grid.RowSpan="3">
                 <Button Grid.Column="0" Click="Player2_Button_Click" Width="400" Height="600" Padding="10" Background="Transparent" BorderBrush="Transparent">
                     <Image Source="\Images\two.png"/>
                 </Button>
             </Grid>
 
-            <Grid Grid.Column="2">
+            <Grid Grid.Column="2" Grid.RowSpan="3">
                 <Button Grid.Column="0" Click="Player3_Button_Click" Width="400" Height="600" Padding="10" Background="Transparent" BorderBrush="Transparent">
                     <Image Source="\Images\three.png"/>
                 </Button>
             </Grid>
+
+            <Label Grid.Row="0" Grid.ColumnSpan="3" Content="NUMBER OF PLAYERS:" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" FontSize="70" FontWeight="Bold" Foreground="SkyBlue"/>
+            <Button Grid.Row="2" Grid.Column="1" Content="BACK" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="SkyBlue" Background="Transparent" FontWeight="Bold" FontSize="30" Padding="10" BorderBrush="SkyBlue" BorderThickness="1"  Click="Back_Button_Click" Width="350"/>
         </Grid>
     </Border>
 </Window>

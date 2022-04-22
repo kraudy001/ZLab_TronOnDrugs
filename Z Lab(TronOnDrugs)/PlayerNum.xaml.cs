@@ -53,5 +53,10 @@ namespace Z_Lab_TronOnDrugs_
             dif.Show();
             Close();
         }
+
+        private void Back_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
