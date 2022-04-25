@@ -69,6 +69,16 @@ namespace Z_Lab_TronOnDrugs_
         private void Logic_EndGame(object sender, EventArgs e)
         {
             int val = 5;
+            dt.Stop();
+            GameOverWindow gameOver = new GameOverWindow();
+            gameOver.ShowDialog();
+          
+            if (gameOver.DialogResult == true)
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+            }
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
