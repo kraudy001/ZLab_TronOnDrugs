@@ -80,36 +80,52 @@ namespace Z_Lab_TronOnDrugs_.Renderer
                 {
                     //motor1
                     drawingContext.DrawRectangle(BlueMotorBrush, null, new Rect(5, area.Height - 100, 100, 100));
-                    // ha felvette az abilityt
-                    drawingContext.DrawEllipse(Brushes.White, null, new Point(area.Width - (area.Width - 125), area.Height - 47.5), 25, 25);
+                    if (logic.Motors[0].special != null)
+                    {
+                        // ha felvette az abilityt
+                        drawingContext.DrawEllipse(Brushes.White, null, new Point(area.Width - (area.Width - 125), area.Height - 47.5), 25, 25);
+                    }
                 }
                 else if (logic.Motors.Count == 2)
                 {
                     //motor1
                     drawingContext.DrawRectangle(BlueMotorBrush, null, new Rect(5, area.Height - 100, 100, 100));
-                    // ha felvette az abilityt
-                    drawingContext.DrawEllipse(Brushes.White, null, new Point(area.Width - (area.Width - 125), area.Height - 47.5), 25, 25);
+                    if (logic.Motors[0].special != null)
+                    {
+                        // ha felvette az abilityt
+                        drawingContext.DrawEllipse(Brushes.White, null, new Point(area.Width - (area.Width - 125), area.Height - 47.5), 25, 25);
+                    }
                     //motor2
                     drawingContext.DrawRectangle(YellowMotorBrush, null, new Rect(area.Width / 2 - 100, area.Height - 100, 100, 100));
-                    // ha felvette az abilityt
-                    drawingContext.DrawEllipse(Brushes.White, null, new Point(area.Width - (area.Width / 2 - 20), area.Height - 47.5), 25, 25);
+                    if (logic.Motors[1].special != null)
+                    {
+                        // ha felvette az abilityt
+                        drawingContext.DrawEllipse(Brushes.White, null, new Point(area.Width - (area.Width / 2 - 20), area.Height - 47.5), 25, 25);
+                    }
                 }
                 else if(logic.Motors.Count == 3)
                 {
                     //motor1
                     drawingContext.DrawRectangle(BlueMotorBrush, null, new Rect(5, area.Height - 100, 100, 100));
-                    // ha felvette az abilityt
-                    drawingContext.DrawEllipse(Brushes.White, null, new Point(area.Width - (area.Width - 125), area.Height - 47.5), 25, 25);
+                    if (logic.Motors[0].special != null)
+                    {
+                        // ha felvette az abilityt
+                        drawingContext.DrawEllipse(Brushes.White, null, new Point(area.Width - (area.Width - 125), area.Height - 47.5), 25, 25);
+                    }
                     //motor2
                     drawingContext.DrawRectangle(YellowMotorBrush, null, new Rect(area.Width / 2 - 100, area.Height - 100, 100, 100));
-                    // ha felvette az abilityt
-                    drawingContext.DrawEllipse(Brushes.White, null, new Point(area.Width - (area.Width / 2 - 20), area.Height - 47.5), 25, 25);
-
+                    if (logic.Motors[1].special != null)
+                    {
+                        // ha felvette az abilityt
+                        drawingContext.DrawEllipse(Brushes.White, null, new Point(area.Width - (area.Width / 2 - 20), area.Height - 47.5), 25, 25);
+                    }
                     //motor3
                     drawingContext.DrawRectangle(BuggieBrush, null, new Rect(area.Width - 205, area.Height - 100, 100, 100));
-                    // ha felvette az abilityt
-                    drawingContext.DrawEllipse(Brushes.White, null, new Point(area.Width - 65, area.Height - 47.5), 25, 25);
-
+                    if (logic.Motors[2].special != null)
+                    {
+                        // ha felvette az abilityt
+                        drawingContext.DrawEllipse(Brushes.White, null, new Point(area.Width - 65, area.Height - 47.5), 25, 25);
+                    }
                 }
                 foreach (var motor in logic.Motors)
                 {
