@@ -15,6 +15,7 @@ namespace Z_Lab_TronOnDrugs_.Renderer
     {
         static public bool medium;
         static public bool hard;
+        private double lineWidth = 5;
         Random rand = new Random();
         Size area;
         IGameLogic logic;
@@ -76,6 +77,16 @@ namespace Z_Lab_TronOnDrugs_.Renderer
             if (logic != null && area.Width > 0 && area.Height > 0)
             {
                 drawingContext.DrawRectangle(BackgroundBrush, null, new Rect(0, 0, area.Width, area.Height));
+
+                #region Walls
+                GeometryGroup walls = new GeometryGroup();
+                walls.Children.Add(new RectangleGeometry(new Rect(0, 0, area.Width, lineWidth)));
+                walls.Children.Add(new RectangleGeometry(new Rect(0, 0, lineWidth, area.Height)));
+                walls.Children.Add(new RectangleGeometry(new Rect(area.Width - lineWidth, 0, lineWidth, area.Height)));
+                walls.Children.Add(new RectangleGeometry(new Rect(0, (area.Height - 100) - lineWidth, area.Width, lineWidth)));
+                drawingContext.DrawGeometry(RandomColor, null, walls);
+                #endregion
+
                 if (logic.Motors.Count == 1)
                 {
                     //motor1

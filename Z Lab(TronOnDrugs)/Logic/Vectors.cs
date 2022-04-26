@@ -123,15 +123,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         {
             get
             {
-                GeometryGroup lines = new GeometryGroup();
-                //walls
-                lines.Children.Add(new RectangleGeometry(new Rect(0, 0, displayWidth, lineWidth)));
-                lines.Children.Add(new RectangleGeometry(new Rect(0, 0, lineWidth, displayHeight)));
-                lines.Children.Add(new RectangleGeometry(new Rect(displayWidth - lineWidth, 0, lineWidth, displayHeight)));
-                lines.Children.Add(new RectangleGeometry(new Rect(0, (displayHeight) - lineWidth, displayWidth, lineWidth)));
-                //lines
-                lines.Children.Add(new RectangleGeometry(new Rect(StartPoint,LineSize)));
-                return lines;
+                return new RectangleGeometry(new Rect(StartPoint, LineSize));
             }
         }
         public Geometry MediumBarriers
