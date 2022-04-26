@@ -128,7 +128,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
                 lines.Children.Add(new RectangleGeometry(new Rect(0, 0, displayWidth, lineWidth)));
                 lines.Children.Add(new RectangleGeometry(new Rect(0, 0, lineWidth, displayHeight)));
                 lines.Children.Add(new RectangleGeometry(new Rect(displayWidth - lineWidth, 0, lineWidth, displayHeight)));
-                lines.Children.Add(new RectangleGeometry(new Rect(0, displayHeight - lineWidth, displayWidth, lineWidth)));
+                lines.Children.Add(new RectangleGeometry(new Rect(0, (displayHeight-100) - lineWidth, displayWidth, lineWidth)));
                 //lines
                 lines.Children.Add(new RectangleGeometry(new Rect(StartPoint,LineSize)));
                 return lines;
@@ -153,17 +153,21 @@ namespace Z_Lab_TronOnDrugs_.Logic
             get
             {
                 GeometryGroup barriers = new GeometryGroup();
+                //vizszint
                 barriers.Children.Add(new RectangleGeometry(new Rect(150, 150, displayWidth / 4, lineWidth)));
                 barriers.Children.Add(new RectangleGeometry(new Rect(200, 600, displayWidth / 6, lineWidth)));
                 barriers.Children.Add(new RectangleGeometry(new Rect(1600, 600, displayWidth / 10, lineWidth)));
+                //fuggo
                 barriers.Children.Add(new RectangleGeometry(new Rect(1000, 70, lineWidth, displayHeight / 8)));
                 barriers.Children.Add(new RectangleGeometry(new Rect(1200, 400, lineWidth, displayHeight / 10)));
                 barriers.Children.Add(new RectangleGeometry(new Rect(800, 600, lineWidth, displayHeight / 5)));
+                //vizszint
                 barriers.Children.Add(new RectangleGeometry(new Rect(1300, 300, displayWidth / 4, lineWidth)));
-                barriers.Children.Add(new RectangleGeometry(new Rect(600, 1000, displayWidth / 6, lineWidth)));
+                barriers.Children.Add(new RectangleGeometry(new Rect(1000, 800, displayWidth / 6, lineWidth)));
                 barriers.Children.Add(new RectangleGeometry(new Rect(1600, 600, displayWidth / 10, lineWidth)));
+                //fuggo
                 barriers.Children.Add(new RectangleGeometry(new Rect(1600, 500, lineWidth, displayHeight / 8)));
-                barriers.Children.Add(new RectangleGeometry(new Rect(1800, 900, lineWidth, displayHeight / 10)));
+                barriers.Children.Add(new RectangleGeometry(new Rect(1800, 750, lineWidth, displayHeight / 10)));
                 barriers.Children.Add(new RectangleGeometry(new Rect(1600, 1200, lineWidth, displayHeight / 5)));
                 return barriers;
             }

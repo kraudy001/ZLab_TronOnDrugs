@@ -76,7 +76,41 @@ namespace Z_Lab_TronOnDrugs_.Renderer
             if (logic != null && area.Width > 0 && area.Height > 0)
             {
                 drawingContext.DrawRectangle(BackgroundBrush, null, new Rect(0, 0, area.Width, area.Height));
+                if (logic.Motors.Count == 1)
+                {
+                    //motor1
+                    drawingContext.DrawRectangle(BlueMotorBrush, null, new Rect(5, area.Height - 100, 100, 100));
+                    // ha felvette az abilityt
+                    drawingContext.DrawEllipse(Brushes.White, null, new Point(area.Width - (area.Width - 125), area.Height - 47.5), 25, 25);
+                }
+                else if (logic.Motors.Count == 2)
+                {
+                    //motor1
+                    drawingContext.DrawRectangle(BlueMotorBrush, null, new Rect(5, area.Height - 100, 100, 100));
+                    // ha felvette az abilityt
+                    drawingContext.DrawEllipse(Brushes.White, null, new Point(area.Width - (area.Width - 125), area.Height - 47.5), 25, 25);
+                    //motor2
+                    drawingContext.DrawRectangle(YellowMotorBrush, null, new Rect(area.Width / 2 - 100, area.Height - 100, 100, 100));
+                    // ha felvette az abilityt
+                    drawingContext.DrawEllipse(Brushes.White, null, new Point(area.Width - (area.Width / 2 - 20), area.Height - 47.5), 25, 25);
+                }
+                else if(logic.Motors.Count == 3)
+                {
+                    //motor1
+                    drawingContext.DrawRectangle(BlueMotorBrush, null, new Rect(5, area.Height - 100, 100, 100));
+                    // ha felvette az abilityt
+                    drawingContext.DrawEllipse(Brushes.White, null, new Point(area.Width - (area.Width - 125), area.Height - 47.5), 25, 25);
+                    //motor2
+                    drawingContext.DrawRectangle(YellowMotorBrush, null, new Rect(area.Width / 2 - 100, area.Height - 100, 100, 100));
+                    // ha felvette az abilityt
+                    drawingContext.DrawEllipse(Brushes.White, null, new Point(area.Width - (area.Width / 2 - 20), area.Height - 47.5), 25, 25);
 
+                    //motor3
+                    drawingContext.DrawRectangle(BuggieBrush, null, new Rect(area.Width - 205, area.Height - 100, 100, 100));
+                    // ha felvette az abilityt
+                    drawingContext.DrawEllipse(Brushes.White, null, new Point(area.Width - 65, area.Height - 47.5), 25, 25);
+
+                }
                 foreach (var motor in logic.Motors)
                 {
                     drawingContext.PushTransform(new RotateTransform(motor.Orientation, motor.Placement.X, motor.Placement.Y));
