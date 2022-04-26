@@ -16,6 +16,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
 
         public Point StartPoint;
         public Point EndPoint;
+        public Point CenterPoint;
         public string sorce;
 
         #region Constructors
@@ -23,11 +24,13 @@ namespace Z_Lab_TronOnDrugs_.Logic
         {
             StartPoint = new Point(StartX, StartY);
             EndPoint = new Point(EndX, EndY);
+            CenterPoint = Center(EndPoint, StartPoint);
         }
         public Vectors(Point StartPoint, Point EndPoint)
         {
             this.StartPoint = StartPoint;
             this.EndPoint = EndPoint;
+            CenterPoint = Center(this.EndPoint, this.StartPoint);
         }
         public Vectors(double displayWidth, double displayHeight, double lineWidth)
         {
@@ -36,6 +39,11 @@ namespace Z_Lab_TronOnDrugs_.Logic
             this.lineWidth = lineWidth;
         }
         #endregion
+
+        public Point Center(Point point1, Point point2)
+        {
+            return (new Point((point1.X + point2.X) / 2, (point1.Y + point2.Y) / 2));
+        }
 
         public bool VectorsIntersect(Vectors vektor)
         {

@@ -68,7 +68,6 @@ namespace Z_Lab_TronOnDrugs_
 
         private void Logic_EndGame(object sender, EventArgs e)
         {
-            int val = 5;
             dt.Stop();
             GameOverWindow gameOver = new GameOverWindow();
             gameOver.ShowDialog();
@@ -88,37 +87,37 @@ namespace Z_Lab_TronOnDrugs_
             display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
         }
 
-        private void Window_KeyDown(object sender, KeyEventArgs e)
+        private async void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Left)
             {
-                motorList[0].TurnLeft();
-                display.InvalidateVisual();
+                await motorList[0].TurnLeft();
+                //display.InvalidateVisual();
             }
             else if (e.Key == Key.Right)
             {
-                motorList[0].TurnRight();
-                display.InvalidateVisual();
+                await motorList[0].TurnRight();
+                //display.InvalidateVisual();
             }
             else if (e.Key == Key.A)
             {
-                motorList[1].TurnLeft();
-                display.InvalidateVisual();
+                await motorList[1].TurnLeft();
+                //display.InvalidateVisual();
             }
             else if (e.Key == Key.D)
             {
-                motorList[1].TurnRight();
-                display.InvalidateVisual();
+                await motorList[1].TurnRight();
+                //display.InvalidateVisual();
             }
             else if (e.Key == Key.J)
             {
-                motorList[2].TurnLeft();
-                display.InvalidateVisual();
+                await motorList[2].TurnLeft();
+                //display.InvalidateVisual();
             }
             else if (e.Key == Key.L)
             {
-                motorList[2].TurnRight();
-                display.InvalidateVisual();
+                await motorList[2].TurnRight();
+                //display.InvalidateVisual();
             }
             else if (e.Key == Key.Escape)
             {

@@ -17,12 +17,14 @@ namespace Z_Lab_TronOnDrugs_.Logic
         public List<AbilityBase> Abilities { get; set; }
 
         #endregion
+
         #region Events
 
         public event EventHandler Change;
         public event EventHandler EndGame;
 
         #endregion
+
         #region Variables
         double displayWidth;
         double displayHeight;
@@ -53,9 +55,10 @@ namespace Z_Lab_TronOnDrugs_.Logic
                 {
                     Vectors.Add(vector);
                 }
+                Abilities.Remove(motor.AbilityCollision(Abilities));
             }
 
-            if (random.NextDouble() < 0.01)
+            if (Abilities.Count < 5 && random.NextDouble() < 0.01)
             {
 
                 Abilities.Add(new AbilityBase("asd", new Point(random.Next(60, (int)displayHeight - 60), random.Next(60, (int)displayWidth - 60))));

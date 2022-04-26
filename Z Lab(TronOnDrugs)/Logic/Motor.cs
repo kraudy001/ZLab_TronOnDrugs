@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
@@ -18,7 +19,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         //calculated in degree  (0-360)
         int orientation;
 
-        IAbility special;  //currentli usable ability
+        AbilityBase special;  //currentli usable ability
 
         int dasCounter;
 
@@ -35,8 +36,9 @@ namespace Z_Lab_TronOnDrugs_.Logic
         }
 
         #region Turning
-        public void TurnLeft()
+        public async Task TurnLeft()
         {
+
             if ((orientation - turnAmount) < 0)
             {
                 orientation = 360 + orientation - turnAmount;
@@ -47,7 +49,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
             }
         }
 
-        public void TurnRight()
+        public async Task TurnRight()
         {
             if(orientation + turnAmount > 360)
             {
@@ -65,11 +67,11 @@ namespace Z_Lab_TronOnDrugs_.Logic
         {
             if(special != null)
             {
-                special.CastAbility(Placement);
+                special.Cast();
             }
             special = null;
         }
-        public void GetAbility(IAbility ability)
+        public void GetAbility(AbilityBase ability)
         {
             this.special = ability;
         }
@@ -128,11 +130,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
             {
                 foreach (Vectors VectorToCheck in vectors)
                 {
-                    if (radiusX/2.9 > new Vectors(VectorToCheck.StartPoint, point).DistanceBetweenEndPoints())
-                    {
-                        return true;
-                    }
-                    else if (radiusX/2.9 > new Vectors(VectorToCheck.EndPoint, point).DistanceBetweenEndPoints())
+                    if (radiusX / 2 + speed / 2 > new Vectors(VectorToCheck.CenterPoint, point).DistanceBetweenEndPoints()) 
                     {
                         return true;
                     }
@@ -140,7 +138,22 @@ namespace Z_Lab_TronOnDrugs_.Logic
             }
             return false;
         }
-        #endregion
+
+        public AbilityBase AbilityCollision(List<AbilityBase> abilitys)
+        {
+            if (abilitys.Count > 1)
+            {
+                foreach (AbilityBase AbilityToCheck in abilitys)
+                {
+                    if (radiusX / 2 + speed / 2 > new Vectors(this.Placement, AbilityToCheck.Placement).DistanceBetweenEndPoints())
+                    {
+                        GetAbility(AbilityToCheck);
+                        return AbilityToCheck;
+                    }
+                }
+            }
+            return null;
+        }
 
         public Geometry Area
         {
@@ -149,5 +162,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
                 return new EllipseGeometry(Placement,radiusX,radiusY);
             }
         }
+
+        #endregion
     }
 }

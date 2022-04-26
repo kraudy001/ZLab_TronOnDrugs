@@ -8,7 +8,7 @@ using System.Windows.Media;
 
 namespace Z_Lab_TronOnDrugs_.Logic
 {
-    internal class AbilityBase
+    public class AbilityBase
     {
 
         public string Name { get; set; }
