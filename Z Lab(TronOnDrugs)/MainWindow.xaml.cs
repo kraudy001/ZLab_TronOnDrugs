@@ -51,7 +51,7 @@ namespace Z_Lab_TronOnDrugs_
                 motorList.Add(new Motor(1000, 500, 0));
                 motorList.Add(new Motor(900, 500, 0));
             }
-            logic = new GameLogic(motorList, grid.ActualWidth, grid.ActualHeight);
+            logic = new GameLogic(motorList, grid.ActualWidth, grid.ActualHeight - 100);
             logic.EndGame += Logic_EndGame;
             display.SetupLogic(logic);
             display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
@@ -82,7 +82,7 @@ namespace Z_Lab_TronOnDrugs_
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            logic = new GameLogic(motorList, grid.ActualWidth, grid.ActualHeight);
+            logic = new GameLogic(motorList, grid.ActualWidth, grid.ActualHeight - 100);
             display.SetupLogic(logic);
             display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
         }

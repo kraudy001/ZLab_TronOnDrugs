@@ -61,7 +61,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
             if (Abilities.Count < 5 && random.NextDouble() < 0.01)
             {
 
-                Abilities.Add(new AbilityBase("asd", new Point(random.Next(60, (int)displayHeight - 60), random.Next(60, (int)displayWidth - 60))));
+                Abilities.Add(new AbilityBase("asd", new Point(random.Next(60, (int)displayWidth - 60), random.Next(60, (int)displayHeight - 60))));
             }
 
             Change?.Invoke(null, null);

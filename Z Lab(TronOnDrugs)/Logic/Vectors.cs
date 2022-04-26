@@ -128,7 +128,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
                 lines.Children.Add(new RectangleGeometry(new Rect(0, 0, displayWidth, lineWidth)));
                 lines.Children.Add(new RectangleGeometry(new Rect(0, 0, lineWidth, displayHeight)));
                 lines.Children.Add(new RectangleGeometry(new Rect(displayWidth - lineWidth, 0, lineWidth, displayHeight)));
-                lines.Children.Add(new RectangleGeometry(new Rect(0, (displayHeight-100) - lineWidth, displayWidth, lineWidth)));
+                lines.Children.Add(new RectangleGeometry(new Rect(0, (displayHeight) - lineWidth, displayWidth, lineWidth)));
                 //lines
                 lines.Children.Add(new RectangleGeometry(new Rect(StartPoint,LineSize)));
                 return lines;
