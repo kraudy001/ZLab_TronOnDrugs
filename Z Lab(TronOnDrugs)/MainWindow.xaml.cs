@@ -99,6 +99,10 @@ namespace Z_Lab_TronOnDrugs_
                 await motorList[0].TurnRight();
                 //display.InvalidateVisual();
             }
+            else if (e.Key == Key.Down)
+            {
+                motorList[0].UseAbility();
+            }
             else if (e.Key == Key.A)
             {
                 await motorList[1].TurnLeft();
@@ -109,6 +113,10 @@ namespace Z_Lab_TronOnDrugs_
                 await motorList[1].TurnRight();
                 //display.InvalidateVisual();
             }
+            else if (e.Key == Key.S)
+            {
+                motorList[1].UseAbility();
+            }
             else if (e.Key == Key.J)
             {
                 await motorList[2].TurnLeft();
@@ -118,6 +126,10 @@ namespace Z_Lab_TronOnDrugs_
             {
                 await motorList[2].TurnRight();
                 //display.InvalidateVisual();
+            }
+            else if (e.Key == Key.K)
+            {
+                motorList[2].UseAbility();
             }
             else if (e.Key == Key.Escape)
             {
