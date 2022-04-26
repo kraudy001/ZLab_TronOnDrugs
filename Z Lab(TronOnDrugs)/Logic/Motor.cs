@@ -19,7 +19,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         //calculated in degree  (0-360)
         int orientation;
 
-        AbilityBase special;  //currentli usable ability
+        public AbilityBase special;  //currentli usable ability
 
         int dasCounter;
 
