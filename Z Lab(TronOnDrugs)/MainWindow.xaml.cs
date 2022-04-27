@@ -89,6 +89,7 @@ namespace Z_Lab_TronOnDrugs_
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
+            //motor1
             if (e.Key == Key.Left)
             {
                 motorList[0].TurnLeft();
@@ -101,30 +102,39 @@ namespace Z_Lab_TronOnDrugs_
             {
                 motorList[0].UseAbility();
             }
-            else if (e.Key == Key.A)
+            //motor2
+            if (motorList.Count == 2)
             {
-                motorList[1].TurnLeft();
+                if (e.Key == Key.A)
+                {
+                    motorList[1].TurnLeft();
+                }
+                else if (e.Key == Key.D)
+                {
+                    motorList[1].TurnRight();
+                }
+                else if (e.Key == Key.S)
+                {
+                    motorList[1].UseAbility();
+                }
             }
-            else if (e.Key == Key.D)
+            //motor3
+            if (motorList.Count == 3)
             {
-                motorList[1].TurnRight();
+                if (e.Key == Key.J)
+                {
+                    motorList[2].TurnLeft();
+                }
+                else if (e.Key == Key.L)
+                {
+                    motorList[2].TurnRight();
+                }
+                else if (e.Key == Key.K)
+                {
+                    motorList[2].UseAbility();
+                }
             }
-            else if (e.Key == Key.S)
-            {
-                motorList[1].UseAbility();
-            }
-            else if (e.Key == Key.J)
-            {
-                motorList[2].TurnLeft();
-            }
-            else if (e.Key == Key.L)
-            {
-                motorList[2].TurnRight();
-            }
-            else if (e.Key == Key.K)
-            {
-                motorList[2].UseAbility();
-            }
+            //menu
             else if (e.Key == Key.Escape)
             {
                 dt.Stop();
