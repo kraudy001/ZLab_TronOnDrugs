@@ -13,6 +13,8 @@ namespace Z_Lab_TronOnDrugs_.Logic
         public Point Placement { get; set; }    // placement of objet (proportionally to grid)
 
         public int Orientation { get => orientation ; set => orientation = value; }
+
+        public int SpeedSet { set { speed = value; } }
         #endregion
 
         #region Variable
@@ -20,6 +22,11 @@ namespace Z_Lab_TronOnDrugs_.Logic
         int orientation;
 
         public AbilityBase special;  //currentli usable ability
+        public int AbilitiActiveTurns = 0;
+        public bool Invisible = false;
+        public bool FullLine = false;
+
+
 
         int dasCounter;
 
@@ -27,6 +34,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         private int speed = 8;
 
         double radiusX = 40, radiusY = 40;
+
         #endregion
         public Motor(int wericalStart, int horisontalStart, int startingOrientation)
         {
@@ -67,10 +75,19 @@ namespace Z_Lab_TronOnDrugs_.Logic
         {
             if(special != null)
             {
-                special.Cast();
+                special.Cast(this);
             }
             special = null;
         }
+
+        public void Reset()
+        {
+            Invisible = false;
+            FullLine = false;
+            speed = 8;
+        }
+
+
         public void GetAbility(AbilityBase ability)
         {
             this.special = ability;
@@ -91,6 +108,17 @@ namespace Z_Lab_TronOnDrugs_.Logic
             }
             #endregion
 
+            if(AbilitiActiveTurns > 0)
+            {
+                AbilitiActiveTurns--;
+            }
+            else if(AbilitiActiveTurns == 0)
+            {
+                Reset();
+                AbilitiActiveTurns--;
+            }
+            
+
             return PointChange(nextPlacement, vectors, ref EndGameToken, 
                 new Vectors(new Point(Placement.X - (int)(Math.Sin(angle) * (radiusX)), Placement.Y + (int)(Math.Cos(angle) * radiusY)), 
                 new Point(Placement.X - (int)(Math.Sin(angle) * (radiusX / 2)), Placement.Y + (int)(Math.Cos(angle) * (radiusY / 2)))));
@@ -99,7 +127,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         private Vectors PointChange(Point point, List<Vectors> vectors, ref bool EndGameToken, Vectors dreg)
         {
             Vectors toReturn = new Vectors(Placement, point);
-            if (dasCounter > 9)
+            if (dasCounter > 9 || FullLine)
             {
 
                 dasCounter--;
@@ -126,7 +154,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         #region Collision detection
         public bool Collision(List<Vectors> vectors, Vectors vector , Point point)
         {
-            if(vectors.Count > 1)
+            if(vectors.Count > 1 || Invisible)
             {
                 foreach (Vectors VectorToCheck in vectors)
                 {

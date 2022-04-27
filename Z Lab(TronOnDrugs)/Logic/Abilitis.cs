@@ -7,11 +7,40 @@ using System.Windows;
 
 namespace Z_Lab_TronOnDrugs_.Logic
 {
-    public class Ghost : IAbility
+    public class Ghost : AbilityBase
     {
-        public void CastAbility(Point point)
+        public Ghost(string name, Point placement) : base(name, placement)
         {
-            throw new NotImplementedException();
+        }
+
+        public override void Cast(Motor motor)
+        {
+            motor.AbilitiActiveTurns = 100;
+            motor.Invisible = true;
+        }
+    }
+    public class SpeedUp : AbilityBase
+    {
+        public SpeedUp(string name, Point placement) : base(name, placement)
+        {
+        }
+
+        public override void Cast(Motor motor)
+        {
+            motor.AbilitiActiveTurns = 10;
+            motor.SpeedSet = 15;
+        }
+    }
+    public class FullWall : AbilityBase
+    {
+        public FullWall(string name, Point placement) : base(name, placement)
+        {
+        }
+
+        public override void Cast(Motor motor)
+        {
+            motor.AbilitiActiveTurns = 10;
+            motor.FullLine = true;
         }
     }
 }

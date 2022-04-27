@@ -8,7 +8,7 @@ using System.Windows.Media;
 
 namespace Z_Lab_TronOnDrugs_.Logic
 {
-    public class AbilityBase
+    public abstract class AbilityBase
     {
 
         public string Name { get; set; }
@@ -26,10 +26,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         }
 
 
-        public void Cast()
-        {
-
-        }
+        public abstract void Cast(Motor motor);
 
         public Geometry Ability
         {
