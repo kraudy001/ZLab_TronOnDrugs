@@ -22,6 +22,7 @@
     <None Remove="Images\tron-buggie.bmp" />
     <None Remove="Images\tron-yellow.bmp" />
     <None Remove="Images\two.png" />
+    <None Remove="Music\music.wav" />
   </ItemGroup>
 
   <ItemGroup>
@@ -61,11 +62,29 @@
     <Content Include="Images\two.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Music\music.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Controller\" />
     <Folder Include="Renderer\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

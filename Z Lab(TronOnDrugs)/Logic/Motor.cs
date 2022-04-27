@@ -36,7 +36,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         }
 
         #region Turning
-        public async Task TurnLeft()
+        public void TurnLeft()
         {
 
             if ((orientation - turnAmount) < 0)
@@ -49,7 +49,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
             }
         }
 
-        public async Task TurnRight()
+        public void TurnRight()
         {
             if(orientation + turnAmount > 360)
             {

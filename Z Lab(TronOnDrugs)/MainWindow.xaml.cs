@@ -87,17 +87,15 @@ namespace Z_Lab_TronOnDrugs_
             display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
         }
 
-        private async void Window_KeyDown(object sender, KeyEventArgs e)
+        private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Left)
             {
-                await motorList[0].TurnLeft();
-                //display.InvalidateVisual();
+                motorList[0].TurnLeft();
             }
             else if (e.Key == Key.Right)
             {
-                await motorList[0].TurnRight();
-                //display.InvalidateVisual();
+                motorList[0].TurnRight();
             }
             else if (e.Key == Key.Down)
             {
@@ -105,13 +103,11 @@ namespace Z_Lab_TronOnDrugs_
             }
             else if (e.Key == Key.A)
             {
-                await motorList[1].TurnLeft();
-                //display.InvalidateVisual();
+                motorList[1].TurnLeft();
             }
             else if (e.Key == Key.D)
             {
-                await motorList[1].TurnRight();
-                //display.InvalidateVisual();
+                motorList[1].TurnRight();
             }
             else if (e.Key == Key.S)
             {
@@ -119,13 +115,11 @@ namespace Z_Lab_TronOnDrugs_
             }
             else if (e.Key == Key.J)
             {
-                await motorList[2].TurnLeft();
-                //display.InvalidateVisual();
+                motorList[2].TurnLeft();
             }
             else if (e.Key == Key.L)
             {
-                await motorList[2].TurnRight();
-                //display.InvalidateVisual();
+                motorList[2].TurnRight();
             }
             else if (e.Key == Key.K)
             {

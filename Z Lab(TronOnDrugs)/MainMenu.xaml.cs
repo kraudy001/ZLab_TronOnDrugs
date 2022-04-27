@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -44,6 +45,12 @@ namespace Z_Lab_TronOnDrugs_
         {
             ControlsWindow cw = new ControlsWindow();
             cw.Show();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            SoundPlayer player = new SoundPlayer(Properties.Resources.music);
+            player.Play();
         }
     }
 }
