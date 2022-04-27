@@ -50,7 +50,7 @@ namespace Z_Lab_TronOnDrugs_
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SoundPlayer player = new SoundPlayer(Properties.Resources.music);
-            player.Play();
+            player.PlayLooping();
         }
     }
 }
