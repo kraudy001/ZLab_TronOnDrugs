@@ -169,7 +169,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
 
         public AbilityBase AbilityCollision(List<AbilityBase> abilitys)
         {
-            if (abilitys.Count > 1)
+            if (abilitys.Count > 0)
             {
                 foreach (AbilityBase AbilityToCheck in abilitys)
                 {
