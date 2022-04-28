@@ -39,7 +39,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
 
         public override void Cast(Motor motor)
         {
-            motor.AbilitiActiveTurns = 10;
+            motor.AbilitiActiveTurns = 100;
             motor.FullLine = true;
         }
     }

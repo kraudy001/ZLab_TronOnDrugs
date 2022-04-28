@@ -154,7 +154,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         #region Collision detection
         public bool Collision(List<Vectors> vectors, Vectors vector , Point point)
         {
-            if(vectors.Count > 1 || Invisible)
+            if(vectors.Count > 1 && !Invisible)
             {
                 foreach (Vectors VectorToCheck in vectors)
                 {
