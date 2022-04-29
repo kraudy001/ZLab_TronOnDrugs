@@ -13,12 +13,16 @@ namespace Z_Lab_TronOnDrugs_.Renderer
 {
     internal class Display : FrameworkElement
     {
+        #region Variables
         static public bool medium;
         static public bool hard;
         private double lineWidth = 5;
         Random rand = new Random();
         Size area;
         IGameLogic logic;
+        #endregion
+
+        #region Constructors
         public void SetupSizes(Size area)
         {
             this.area = area;
@@ -30,7 +34,9 @@ namespace Z_Lab_TronOnDrugs_.Renderer
             this.logic = logic;
             this.logic.Change += (sender, eventargs) => this.InvalidateVisual();
         }
+        #endregion
 
+        #region Brushes
         public Brush BackgroundBrush
         {
             get
@@ -92,14 +98,18 @@ namespace Z_Lab_TronOnDrugs_.Renderer
             {
                 return new SolidColorBrush(Color.FromRgb((byte)rand.Next(0, 256), (byte)rand.Next(0, 256), (byte)rand.Next(0, 256)));
             }
-        } 
+        }
+        #endregion
 
+        #region OnRender
         protected override void OnRender(DrawingContext drawingContext)
         {
             base.OnRender(drawingContext);
             if (logic != null && area.Width > 0 && area.Height > 0)
             {
+                #region Draw Background
                 drawingContext.DrawRectangle(BackgroundBrush, null, new Rect(0, 0, area.Width, area.Height));
+                #endregion
 
                 #region Walls
                 GeometryGroup walls = new GeometryGroup();
@@ -110,6 +120,7 @@ namespace Z_Lab_TronOnDrugs_.Renderer
                 drawingContext.DrawGeometry(RandomColor, null, walls);
                 #endregion
 
+                #region Motor Properties
                 if (logic.Motors.Count == 1)
                 {
                     //motor1
@@ -227,6 +238,9 @@ namespace Z_Lab_TronOnDrugs_.Renderer
                         }
                     }
                 }
+                #endregion
+
+                #region Draw Motors
                 foreach (var motor in logic.Motors)
                 {
                     drawingContext.PushTransform(new RotateTransform(motor.Orientation, motor.Placement.X, motor.Placement.Y));
@@ -244,9 +258,10 @@ namespace Z_Lab_TronOnDrugs_.Renderer
                     }
                     drawingContext.Pop();
                 }
+                #endregion
 
+                #region Draw Vectors
                 // a motorok altal huzott vektoroknak a sorc erteke == "MotorVector"
-
                 foreach (var vector in logic.Vectors)
                 {
                     drawingContext.DrawGeometry(RandomColor, null, vector.Lines);
@@ -259,7 +274,9 @@ namespace Z_Lab_TronOnDrugs_.Renderer
                         drawingContext.DrawGeometry(RandomColor, null, vector.HardBarriers);
                     }
                 }
+                #endregion
 
+                #region Draw Abilities
                 foreach (var ability in logic.Abilities)
                 {
                     if (ability.Name == "Ghost")
@@ -275,7 +292,9 @@ namespace Z_Lab_TronOnDrugs_.Renderer
                         drawingContext.DrawGeometry(WallAbilityBrush, null, ability.Ability);
                     }
                 }
+                #endregion
             }
         }
+        #endregion
     }
 }
