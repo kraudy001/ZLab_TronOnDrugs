@@ -23,6 +23,9 @@
             <Button Grid.Row="1" Content="PLAY" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="30" Padding="10" Margin="10" Background="Transparent" Foreground="SkyBlue" BorderBrush="SkyBlue" BorderThickness="1" Click="Play_Button_Click" Width="350"/>
             <Button Grid.Row="2" Content="CONTROLS" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="SkyBlue" BorderBrush="SkyBlue" BorderThickness="1" FontWeight="Bold" FontSize="30" Padding="10" Margin="10" Width="350" HorizontalContentAlignment="Center" Click="Controls_Button_Click"/>
             <Button Grid.Row="3" Content="EXIT" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="SkyBlue" FontWeight="Bold" FontSize="30" Padding="10" Margin="10" BorderBrush="SkyBlue" BorderThickness="1" Click="Exit_Button_Click" Width="350"/>
+            <Button Grid.Row="3" Margin="10" Padding="9" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="50" Height="50" Background="Transparent" BorderBrush="SkyBlue" BorderThickness="1" Click="Sound_Button_Click">
+                <Image Source="\Images\soundcontrol.png"/>
+            </Button>
         </Grid>
     </Border>
 </Window>

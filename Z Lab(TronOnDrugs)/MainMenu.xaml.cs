@@ -20,6 +20,8 @@ namespace Z_Lab_TronOnDrugs_
     /// </summary>
     public partial class MainMenu : Window
     {
+        bool isOn = true;
+        SoundPlayer player;
         public MainMenu()
         {
             InitializeComponent();
@@ -49,8 +51,22 @@ namespace Z_Lab_TronOnDrugs_
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            SoundPlayer player = new SoundPlayer(Properties.Resources.music);
+            player = new SoundPlayer(Properties.Resources.music);
             player.PlayLooping();
+        }
+
+        private void Sound_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (isOn == true)
+            {
+                player.Stop();
+                isOn = false;
+            }
+            else if (isOn == false)
+            {
+                player.PlayLooping();
+                isOn = true;
+            }
         }
     }
 }

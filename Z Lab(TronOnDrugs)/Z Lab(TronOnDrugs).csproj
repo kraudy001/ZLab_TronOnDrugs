@@ -18,6 +18,7 @@
     <None Remove="Images\icon.ico" />
     <None Remove="Images\medium.png" />
     <None Remove="Images\one.png" />
+    <None Remove="Images\soundcontrol.png" />
     <None Remove="Images\speed.png" />
     <None Remove="Images\three.png" />
     <None Remove="Images\tron-blue.bmp" />
@@ -51,6 +52,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\one.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\soundcontrol.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\speed.png">
