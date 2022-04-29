@@ -13,15 +13,18 @@
     <None Remove="Images\Background.png" />
     <None Remove="Images\controls.png" />
     <None Remove="Images\easy.png" />
+    <None Remove="Images\ghost.png" />
     <None Remove="Images\hard.png" />
     <None Remove="Images\icon.ico" />
     <None Remove="Images\medium.png" />
     <None Remove="Images\one.png" />
+    <None Remove="Images\speed.png" />
     <None Remove="Images\three.png" />
     <None Remove="Images\tron-blue.bmp" />
     <None Remove="Images\tron-buggie.bmp" />
     <None Remove="Images\tron-yellow.bmp" />
     <None Remove="Images\two.png" />
+    <None Remove="Images\wall.png" />
     <None Remove="Music\music.wav" />
   </ItemGroup>
 
@@ -35,6 +38,9 @@
     <Content Include="Images\easy.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\ghost.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\hard.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -45,6 +51,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\one.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\speed.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\three.png">
@@ -60,6 +69,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\two.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\wall.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Music\music.wav">
