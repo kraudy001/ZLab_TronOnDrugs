@@ -14,9 +14,13 @@ namespace Z_Lab_TronOnDrugs_.Renderer
     internal class Display : FrameworkElement
     {
         #region Variables
-        static public bool medium;
-        static public bool hard;
+        public static bool medium;
+        public static bool hard;
         private double lineWidth = 5;
+        public static int r;
+        public static int g;
+        public static int b;
+
         Random rand = new Random();
         Size area;
         IGameLogic logic;
@@ -33,6 +37,13 @@ namespace Z_Lab_TronOnDrugs_.Renderer
         {
             this.logic = logic;
             this.logic.Change += (sender, eventargs) => this.InvalidateVisual();
+        }
+
+        public void RandomRGB()
+        {
+            g = rand.Next(0, 256);
+            b = rand.Next(0, 256);
+            r = rand.Next(0, 256);
         }
         #endregion
 
@@ -96,7 +107,7 @@ namespace Z_Lab_TronOnDrugs_.Renderer
         {
             get
             {
-                return new SolidColorBrush(Color.FromRgb((byte)rand.Next(0, 256), (byte)rand.Next(0, 256), (byte)rand.Next(0, 256)));
+                return new SolidColorBrush(Color.FromRgb((byte)r, (byte)g, (byte)b));
             }
         }
         #endregion
