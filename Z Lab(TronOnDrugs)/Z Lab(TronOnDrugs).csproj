@@ -27,6 +27,7 @@
     <None Remove="Images\one.png" />
     <None Remove="Images\soundcontrol.png" />
     <None Remove="Images\speed.png" />
+    <None Remove="Images\stone.png" />
     <None Remove="Images\three.png" />
     <None Remove="Images\tron-blue.bmp" />
     <None Remove="Images\tron-buggie.bmp" />
@@ -65,6 +66,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\speed.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\stone.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\three.png">

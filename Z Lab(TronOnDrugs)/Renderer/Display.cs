@@ -54,6 +54,14 @@ namespace Z_Lab_TronOnDrugs_.Renderer
             }
         }
 
+        public Brush StoneBrush
+        {
+            get
+            {
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "stone.png"), UriKind.RelativeOrAbsolute)));
+            }
+        }
+
         public Brush BlueMotorBrush
         {
             get
@@ -275,7 +283,7 @@ namespace Z_Lab_TronOnDrugs_.Renderer
                 {
                     if (vector.sorce == "stone")
                     {
-                        drawingContext.DrawGeometry(RandomColor, null, vector.Stones);
+                        drawingContext.DrawGeometry(StoneBrush, null, vector.Stones);
                     }
                     else
                     {

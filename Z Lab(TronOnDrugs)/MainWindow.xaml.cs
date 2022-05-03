@@ -67,7 +67,7 @@ namespace Z_Lab_TronOnDrugs_
             #region Difficulty
             if (medium == true)
             {
-                stonesList = Vectors.StoneGenerator(grid.ActualWidth, grid.ActualHeight - 100, 3);
+                stonesList = Vectors.StoneGenerator(grid.ActualWidth, grid.ActualHeight - 100, 6);
                 logic = new GameLogic(motorList, grid.ActualWidth, grid.ActualHeight - 100, stonesList, false);
             }
             else if (hard == true)
