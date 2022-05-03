@@ -112,7 +112,7 @@ namespace Z_Lab_TronOnDrugs_
         #region Controls
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            //motor1
+            //ha egy motor van
             if (e.Key == Key.Left)
             {
                 motorList[0].TurnLeft = true;
@@ -125,10 +125,22 @@ namespace Z_Lab_TronOnDrugs_
             {
                 motorList[0].UseAbility();
             }
-            //motor2
+            //ha ketto motor van
             if (motorList.Count == 2)
             {
-                if (e.Key == Key.A)
+                if (e.Key == Key.Left)
+                {
+                    motorList[0].TurnLeft = true;
+                }
+                else if (e.Key == Key.Right)
+                {
+                    motorList[0].TurnRight = true;
+                }
+                else if (e.Key == Key.Down)
+                {
+                    motorList[0].UseAbility();
+                }
+                else if (e.Key == Key.A)
                 {
                     motorList[1].TurnLeft = true;
                 }
@@ -141,10 +153,34 @@ namespace Z_Lab_TronOnDrugs_
                     motorList[1].UseAbility();
                 }
             }
-            //motor3
+            //ha harom motor van
             if (motorList.Count == 3)
             {
-                if (e.Key == Key.J)
+                if (e.Key == Key.Left)
+                {
+                    motorList[0].TurnLeft = true;
+                }
+                else if (e.Key == Key.Right)
+                {
+                    motorList[0].TurnRight = true;
+                }
+                else if (e.Key == Key.Down)
+                {
+                    motorList[0].UseAbility();
+                }
+                else if (e.Key == Key.A)
+                {
+                    motorList[1].TurnLeft = true;
+                }
+                else if (e.Key == Key.D)
+                {
+                    motorList[1].TurnRight = true;
+                }
+                else if (e.Key == Key.S)
+                {
+                    motorList[1].UseAbility();
+                }
+                else if (e.Key == Key.J)
                 {
                     motorList[2].TurnLeft = true;
                 }
@@ -176,7 +212,7 @@ namespace Z_Lab_TronOnDrugs_
 
         private void Window_KeyUp(object sender, KeyEventArgs e)
         {
-            //motor1
+            //ha egy motor van
             if (e.Key == Key.Left)
             {
                 motorList[0].TurnLeft = false;
@@ -189,10 +225,22 @@ namespace Z_Lab_TronOnDrugs_
             {
                 motorList[0].UseAbility();
             }
-            //motor2
+            //ha ketto motor van
             if (motorList.Count == 2)
             {
-                if (e.Key == Key.A)
+                if (e.Key == Key.Left)
+                {
+                    motorList[0].TurnLeft = false;
+                }
+                else if (e.Key == Key.Right)
+                {
+                    motorList[0].TurnRight = false;
+                }
+                else if (e.Key == Key.Down)
+                {
+                    motorList[0].UseAbility();
+                }
+                else if (e.Key == Key.A)
                 {
                     motorList[1].TurnLeft = false;
                 }
@@ -205,10 +253,34 @@ namespace Z_Lab_TronOnDrugs_
                     motorList[1].UseAbility();
                 }
             }
-            //motor3
+            //ha harom motor van
             if (motorList.Count == 3)
             {
-                if (e.Key == Key.J)
+                if (e.Key == Key.Left)
+                {
+                    motorList[0].TurnLeft = false;
+                }
+                else if (e.Key == Key.Right)
+                {
+                    motorList[0].TurnRight = false;
+                }
+                else if (e.Key == Key.Down)
+                {
+                    motorList[0].UseAbility();
+                }
+                else if (e.Key == Key.A)
+                {
+                    motorList[1].TurnLeft = false;
+                }
+                else if (e.Key == Key.D)
+                {
+                    motorList[1].TurnRight = false;
+                }
+                else if (e.Key == Key.S)
+                {
+                    motorList[1].UseAbility();
+                }
+                else if (e.Key == Key.J)
                 {
                     motorList[2].TurnLeft = false;
                 }
