@@ -270,18 +270,18 @@ namespace Z_Lab_TronOnDrugs_.Renderer
                 #endregion
 
                 #region Draw Vectors
-                // a motorok altal huzott vektoroknak a sorc erteke == "MotorVector"
+                // a Stones vektoranak a sorce erteke == "stone"
                 foreach (var vector in logic.Vectors)
                 {
-                    drawingContext.DrawGeometry(RandomColor, null, vector.Lines);
+                    if (vector.sorce == "stone")
+                    {
+                        drawingContext.DrawGeometry(RandomColor, null, vector.Stones);
+                    }
+                    else
+                    {
+                        drawingContext.DrawGeometry(RandomColor, null, vector.Lines);
+                    }
                 }
-                #endregion
-
-                #region Draw Stones
-                //foreach (var stone in logic.Vectors)
-                //{
-                //    drawingContext.DrawGeometry(RandomColor, null, stone.Stones);
-                //}
                 #endregion
 
                 #region Draw Abilities

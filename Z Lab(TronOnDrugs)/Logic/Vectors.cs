@@ -18,7 +18,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         public Point EndPoint;
         public Point CenterPoint;
         public string sorce;
-        Random random;
+        static Random random;
 
         #region Constructors
         public Vectors(int StartX, int StartY, int EndX, int EndY)
@@ -119,14 +119,6 @@ namespace Z_Lab_TronOnDrugs_.Logic
             }
         }
 
-        public Size StoneSize
-        {
-            get
-            {
-                return new Size(5, 5); //preferably same numbers
-            }
-        }
-
         public Geometry Lines
         {
             get
@@ -135,7 +127,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
             }
         }
         
-        public List<Vectors> StoneGenerator(double displayWidth, double displayHeight, int numberOfGeneratedStones)
+        public static List<Vectors> StoneGenerator(double displayWidth, double displayHeight, int numberOfGeneratedStones)
         {
             List<Vectors> Stones = new List<Vectors>();
             for (int i = 0; i < numberOfGeneratedStones; i++)
