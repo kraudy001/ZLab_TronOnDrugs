@@ -45,7 +45,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         }
 
         #region Turning
-        public void turnLeft()
+        void turnLeft()
         {
 
             if ((orientation - turnAmount) < 0)
@@ -58,7 +58,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
             }
         }
 
-        public void turnRight()
+        void turnRight()
         {
             if(orientation + turnAmount > 360)
             {
@@ -67,6 +67,18 @@ namespace Z_Lab_TronOnDrugs_.Logic
             else
             {
                 orientation = orientation + turnAmount;
+            }
+        }
+
+        public void Turning()
+        {
+            if (TurnLeft)
+            {
+                turnLeft();
+            }
+            if (TurnRight)
+            {
+                turnRight();
             }
         }
         #endregion
@@ -133,7 +145,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
 
                 dasCounter--;
                 Placement = point;
-                EndGameToken = Collision(vectors,toReturn, point);
+                EndGameToken = WallCollision(vectors,toReturn, point);
                 toReturn.sorce = "MotorVector";
                 return dreg;
                 
@@ -141,25 +153,26 @@ namespace Z_Lab_TronOnDrugs_.Logic
             else 
             {
                 dasCounter--;
-                if (dasCounter == 0)
+                if (dasCounter <= 0)
                 {
                     dasCounter = 18;
                 }
                 Placement = point;
-                EndGameToken = Collision(vectors, toReturn, point);
+                EndGameToken = WallCollision(vectors, toReturn, point);
                 return null;
             }
         }
         #endregion
 
         #region Collision detection
-        public bool Collision(List<Vectors> vectors, Vectors vector , Point point)
+        public bool WallCollision(List<Vectors> vectors, Vectors vector , Point point)
         {
             if(vectors.Count > 1 && !Invisible)
             {
                 foreach (Vectors VectorToCheck in vectors)
                 {
-                    if (radiusX / 2 + speed / 2 > new Vectors(VectorToCheck.CenterPoint, point).DistanceBetweenEndPoints()) 
+                    if (radiusX / 2 + speed / 2 > new Vectors(VectorToCheck.CenterPoint, point).DistanceBetweenEndPoints() 
+                        || VectorToCheck.sorce == "stone" && radiusX / 2 + 15 > new Vectors(VectorToCheck.CenterPoint, point).DistanceBetweenEndPoints()) 
                     {
                         return true;
                     }

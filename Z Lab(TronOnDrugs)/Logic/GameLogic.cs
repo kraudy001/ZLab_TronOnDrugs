@@ -29,16 +29,17 @@ namespace Z_Lab_TronOnDrugs_.Logic
         double displayWidth;
         double displayHeight;
         Random random;
+        bool randomStones;
         #endregion
-        public GameLogic(List<Motor> motors, double displayWidth, double displayHeight)
+        public GameLogic(List<Motor> motors, double displayWidth, double displayHeight, List<Vectors> vectors, bool randomgen = false)
         {
             this.Motors = motors;
-            Vectors = new List<Vectors>();
-            Abilities = new List<AbilityBase>();
+            this.Vectors = vectors;
+            this.Abilities = new List<AbilityBase>();
             this.displayWidth = displayWidth;
             this.displayHeight = displayHeight;
-            Vectors.Add(new Vectors(displayWidth, displayHeight, 5));
-            random = new Random();
+            this.random = new Random();
+            this.randomStones = randomgen;
         }
 
         public void Turn()
@@ -46,6 +47,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
             bool EndGameToken = false;
             foreach (Motor motor in Motors)
             {
+                motor.Turning();
                 Vectors vector = motor.Move(Vectors, ref EndGameToken, displayWidth, displayHeight);
                 if (EndGameToken)
                 {
@@ -60,6 +62,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
                     Vectors.Add(vector);
                 }
                 Abilities.Remove(motor.AbilityCollision(Abilities));
+                motor.Turning();
             }
 
             if (Abilities.Count < 5 && random.NextDouble() < 0.01)
@@ -78,6 +81,11 @@ namespace Z_Lab_TronOnDrugs_.Logic
                         break;
                 }
                 
+            }
+
+            if (randomStones && random.NextDouble() < 0.005)
+            {
+                Vectors.Add(new Vectors(new Point(random.Next(20, (int)(displayHeight) - 20), random.Next(20, (int)(displayWidth))), "stone"));
             }
 
             Change?.Invoke(null, null);
