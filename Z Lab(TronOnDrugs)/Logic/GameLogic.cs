@@ -62,7 +62,6 @@ namespace Z_Lab_TronOnDrugs_.Logic
                     Vectors.Add(vector);
                 }
                 Abilities.Remove(motor.AbilityCollision(Abilities));
-                motor.Turning();
             }
 
             if (Abilities.Count < 5 && random.NextDouble() < 0.01)
