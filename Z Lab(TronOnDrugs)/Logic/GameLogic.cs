@@ -30,6 +30,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         double displayHeight;
         Random random;
         bool randomStones;
+        bool MultyPlayer;
         #endregion
 
         #region Constructors
@@ -42,6 +43,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
             this.displayHeight = displayHeight;
             this.random = new Random();
             this.randomStones = randomgen;
+            this.MultyPlayer = motors.Count > 1;
         }
         #endregion
 
@@ -74,7 +76,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
                 if (EndGameToken)
                 {
                     Motors.Remove(Motors[i]);
-                    if (Motors.Count == 0)
+                    if (MultyPlayer && Motors.Count == 1 || Motors.Count == 0)
                     {
                         EndGame?.Invoke(null, null);
                     }
