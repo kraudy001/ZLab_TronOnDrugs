@@ -18,25 +18,25 @@ namespace Z_Lab_TronOnDrugs_.Logic
         public Point EndPoint;
         public Point CenterPoint;
         public string sorce;
+        Random random;
 
         #region Constructors
         public Vectors(int StartX, int StartY, int EndX, int EndY)
         {
-            StartPoint = new Point(StartX, StartY);
-            EndPoint = new Point(EndX, EndY);
-            CenterPoint = Center(EndPoint, StartPoint);
+            this.StartPoint = new Point(StartX, StartY);
+            this.EndPoint = new Point(EndX, EndY);
+            this.CenterPoint = Center(EndPoint, StartPoint);
         }
         public Vectors(Point StartPoint, Point EndPoint)
         {
             this.StartPoint = StartPoint;
             this.EndPoint = EndPoint;
-            CenterPoint = Center(this.EndPoint, this.StartPoint);
+            this.CenterPoint = Center(this.EndPoint, this.StartPoint);
         }
-        public Vectors(double displayWidth, double displayHeight, double lineWidth)
+        public Vectors(Point center, string sorce)
         {
-            this.displayWidth = displayWidth;
-            this.displayHeight = displayHeight;
-            this.lineWidth = lineWidth;
+            this.CenterPoint = center;
+            this.sorce = sorce;
         }
         #endregion
 
@@ -163,6 +163,15 @@ namespace Z_Lab_TronOnDrugs_.Logic
                 barriers.Children.Add(new RectangleGeometry(new Rect(1600, 1200, lineWidth, displayHeight / 5)));
                 return barriers;
             }
+        }
+        public List<Vectors> StoneGenerator(double displayWidth, double displayHeight, int numberOfGeneratedStones)
+        {
+            List<Vectors> Stones = new List<Vectors>();
+            for (int i = 0; i < numberOfGeneratedStones; i++)
+            {
+                Stones.Add(new Vectors(new Point(random.Next(20,(int)(displayHeight)-20), random.Next( 20,(int)(displayWidth))), "stone")); // radius 15
+            }
+            return Stones;
         }
     }
 }
