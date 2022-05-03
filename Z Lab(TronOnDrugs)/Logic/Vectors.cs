@@ -135,7 +135,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
             List<Vectors> Stones = new List<Vectors>();
             for (int i = 0; i < numberOfGeneratedStones; i++)
             {
-                Stones.Add(new Vectors(new Point(random.Next(20,(int)displayHeight-20), random.Next( 20,(int)displayWidth-20)), "stone")); // radius 15
+                Stones.Add(new Vectors(new Point(random.Next(20, (int)displayWidth - 20), random.Next(20, (int)displayHeight - 20)), "stone")); // radius 15
             }
             return Stones;
         }

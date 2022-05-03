@@ -49,23 +49,44 @@ namespace Z_Lab_TronOnDrugs_.Logic
         public void Turn()
         {
             bool EndGameToken = false;
-            foreach (Motor motor in Motors)
+            //foreach (Motor motor in Motors)
+            //{
+            //    motor.Turning();
+            //    Vectors vector = motor.Move(Vectors, ref EndGameToken, displayWidth, displayHeight);
+            //    if (EndGameToken)
+            //    {
+            //        Motors.Remove(motor);
+            //        if(Motors.Count == 0)
+            //        {
+            //            EndGame?.Invoke(null, null);
+            //        }
+            //    }
+            //    if (vector != null)
+            //    {
+            //        Vectors.Add(vector);
+            //    }
+            //    Abilities.Remove(motor.AbilityCollision(Abilities));
+            //}
+            for (int i = Motors.Count-1; 0 <= i; i--)
             {
-                motor.Turning();
-                Vectors vector = motor.Move(Vectors, ref EndGameToken, displayWidth, displayHeight);
+                Motors[i].Turning();
+                Vectors vector = Motors[i].Move(Vectors, ref EndGameToken, displayWidth, displayHeight);
                 if (EndGameToken)
                 {
-                    Motors.Remove(motor);
-                    if(Motors.Count == 0)
+                    Motors.Remove(Motors[i]);
+                    if (Motors.Count == 0)
                     {
                         EndGame?.Invoke(null, null);
                     }
                 }
-                if (vector != null)
+                else
                 {
-                    Vectors.Add(vector);
+                    if (vector != null)
+                    {
+                        Vectors.Add(vector);
+                    }
+                    Abilities.Remove(Motors[i].AbilityCollision(Abilities));
                 }
-                Abilities.Remove(motor.AbilityCollision(Abilities));
             }
 
             if (Abilities.Count < 5 && random.NextDouble() < 0.01)
@@ -92,6 +113,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
             }
 
             Change?.Invoke(null, null);
+                
         }
         #endregion
     }
