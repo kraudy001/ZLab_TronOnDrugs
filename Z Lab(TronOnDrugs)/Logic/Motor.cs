@@ -172,7 +172,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
                 foreach (Vectors VectorToCheck in vectors)
                 {
                     if (radiusX / 2 + speed / 2 > new Vectors(VectorToCheck.CenterPoint, point).DistanceBetweenEndPoints() 
-                        || VectorToCheck.sorce == "stone" && radiusX / 2 + 15 > new Vectors(VectorToCheck.CenterPoint, point).DistanceBetweenEndPoints()) 
+                        || VectorToCheck.sorce == "stone" && radiusX / 2 + 20 > new Vectors(VectorToCheck.CenterPoint, point).DistanceBetweenEndPoints()) 
                     {
                         return true;
                     }
