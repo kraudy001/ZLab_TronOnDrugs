@@ -10,15 +10,13 @@ namespace Z_Lab_TronOnDrugs_.Logic
 {
     public class Vectors
     {
-        private double displayWidth;
-        private double displayHeight;
-        private double lineWidth;
-
+        #region Variables
         public Point StartPoint;
         public Point EndPoint;
         public Point CenterPoint;
         public string sorce;
         static Random random = new Random();
+        #endregion
 
         #region Constructors
         public Vectors(int StartX, int StartY, int EndX, int EndY)
@@ -40,6 +38,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         }
         #endregion
 
+        #region Vector
         public Point Center(Point point1, Point point2)
         {
             return (new Point((point1.X + point2.X) / 2, (point1.Y + point2.Y) / 2));
@@ -110,7 +109,9 @@ namespace Z_Lab_TronOnDrugs_.Logic
         {
             return Math.Sqrt(Math.Pow(EndPoint.X - StartPoint.X, 2) + Math.Pow(EndPoint.Y - StartPoint.Y, 2));
         }
+        #endregion
 
+        #region Lines
         public Size LineSize
         {
             get
@@ -126,7 +127,9 @@ namespace Z_Lab_TronOnDrugs_.Logic
                 return new RectangleGeometry(new Rect(StartPoint, LineSize));
             }
         }
-        
+        #endregion
+
+        #region Stones
         public static List<Vectors> StoneGenerator(double displayWidth, double displayHeight, int numberOfGeneratedStones)
         {
             List<Vectors> Stones = new List<Vectors>();
@@ -141,8 +144,9 @@ namespace Z_Lab_TronOnDrugs_.Logic
         {
             get
             {
-                return new EllipseGeometry(CenterPoint,15,15);
+                return new EllipseGeometry(CenterPoint,20,20);
             }
         }
+        #endregion
     }
 }

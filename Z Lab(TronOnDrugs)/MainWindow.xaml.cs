@@ -22,15 +22,20 @@ namespace Z_Lab_TronOnDrugs_
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region Properties
         DispatcherTimer dt;
         List<Motor> motorList = new List<Motor>();
         List<Vectors> stonesList = new List<Vectors>();
         GameLogic logic;
+        #endregion
+
+        #region Variables
         public static bool oneplayer;
         public static bool twoplayer;
         public static bool threeplayer;
         public static bool medium;
         public static bool hard;
+        #endregion
 
         public MainWindow()
         {
@@ -40,6 +45,8 @@ namespace Z_Lab_TronOnDrugs_
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             display.RandomRGB();
+
+            #region Players
             if (oneplayer == true)
             {
                 motorList.Add(new Motor(960, 880, 0));
@@ -55,6 +62,9 @@ namespace Z_Lab_TronOnDrugs_
                 motorList.Add(new Motor(1580, 880, 0));
                 motorList.Add(new Motor(960, 880, 0));
             }
+            #endregion
+
+            #region Difficulty
             if (medium == true)
             {
                 stonesList = Vectors.StoneGenerator(grid.ActualWidth, grid.ActualHeight - 100, 3);
@@ -65,10 +75,12 @@ namespace Z_Lab_TronOnDrugs_
                 stonesList = Vectors.StoneGenerator(grid.ActualWidth, grid.ActualHeight - 100, 6);
                 logic = new GameLogic(motorList, grid.ActualWidth, grid.ActualHeight - 100, stonesList, true);
             }
-            else if (medium == false && hard == false)
+            else if (medium == false && hard == false) //easy
             {
                 logic = new GameLogic(motorList, grid.ActualWidth, grid.ActualHeight - 100, stonesList, false);
             }
+            #endregion
+
             logic.EndGame += Logic_EndGame;
             display.SetupLogic(logic);
             display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
@@ -97,6 +109,7 @@ namespace Z_Lab_TronOnDrugs_
             }
         }
 
+        #region Controls
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             //motor1
@@ -209,5 +222,6 @@ namespace Z_Lab_TronOnDrugs_
                 }
             }
         }
+        #endregion
     }
 }

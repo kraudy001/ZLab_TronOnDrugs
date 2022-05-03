@@ -9,7 +9,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
 {
     internal class GameLogic : IGameLogic
     {
-        #region Propertys
+        #region Properties
         public List<Motor> Motors { get; set; }
 
         public List<Vectors> Vectors { get; set; }
@@ -31,6 +31,8 @@ namespace Z_Lab_TronOnDrugs_.Logic
         Random random;
         bool randomStones;
         #endregion
+
+        #region Constructors
         public GameLogic(List<Motor> motors, double displayWidth, double displayHeight, List<Vectors> vectors, bool randomgen = false)
         {
             this.Motors = motors;
@@ -41,7 +43,9 @@ namespace Z_Lab_TronOnDrugs_.Logic
             this.random = new Random();
             this.randomStones = randomgen;
         }
+        #endregion
 
+        #region Turn
         public void Turn()
         {
             bool EndGameToken = false;
@@ -89,5 +93,6 @@ namespace Z_Lab_TronOnDrugs_.Logic
 
             Change?.Invoke(null, null);
         }
+        #endregion
     }
 }

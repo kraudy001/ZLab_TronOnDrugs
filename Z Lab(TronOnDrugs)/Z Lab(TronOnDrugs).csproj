@@ -10,6 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controller\**" />
+    <EmbeddedResource Remove="Controller\**" />
+    <None Remove="Controller\**" />
+    <Page Remove="Controller\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Images\Background.png" />
     <None Remove="Images\controls.png" />
     <None Remove="Images\easy.png" />
@@ -84,7 +91,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controller\" />
     <Folder Include="Renderer\" />
   </ItemGroup>
 

@@ -9,7 +9,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
 {
     public class Motor
     {
-        #region Property
+        #region Properties
         public Point Placement { get; set; }    // placement of objet (proportionally to grid)
 
         public int Orientation { get => orientation ; set => orientation = value; }
@@ -17,7 +17,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         public int SpeedSet { set { speed = value; } }
         #endregion
 
-        #region Variable
+        #region Variables
         //calculated in degree  (0-360)
         int orientation;
 
@@ -37,12 +37,15 @@ namespace Z_Lab_TronOnDrugs_.Logic
         double radiusX = 40, radiusY = 40;
 
         #endregion
+
+        #region Constructors
         public Motor(int wericalStart, int horisontalStart, int startingOrientation)
         {
             this.Placement = new Point( wericalStart, horisontalStart);
             this.orientation = startingOrientation;
             dasCounter = 18;
         }
+        #endregion
 
         #region Turning
         void turnLeft()
