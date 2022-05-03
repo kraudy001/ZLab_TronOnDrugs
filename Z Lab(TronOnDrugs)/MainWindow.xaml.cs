@@ -25,9 +25,9 @@ namespace Z_Lab_TronOnDrugs_
         DispatcherTimer dt;
         List<Motor> motorList = new List<Motor>();
         GameLogic logic;
-        static public bool oneplayer;
-        static public bool twoplayer;
-        static public bool threeplayer;
+        public static bool oneplayer;
+        public static bool twoplayer;
+        public static bool threeplayer;
 
         public MainWindow()
         {
@@ -36,6 +36,7 @@ namespace Z_Lab_TronOnDrugs_
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            display.RandomRGB();
             if (oneplayer == true)
             {
                 motorList.Add(new Motor(100, 500, 0));
@@ -135,7 +136,7 @@ namespace Z_Lab_TronOnDrugs_
                 }
             }
             //menu
-            else if (e.Key == Key.Escape)
+            if (e.Key == Key.Escape)
             {
                 dt.Stop();
                 PauseMenu pm = new PauseMenu();

@@ -32,7 +32,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         {
             get
             {
-                return new EllipseGeometry(Placement,10,10);
+                return new EllipseGeometry(Placement,20,20);
             }
         }
 

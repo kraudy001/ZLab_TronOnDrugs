@@ -21,7 +21,7 @@
             <Label Grid.Row="0" Content="CONTROLS" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" FontSize="70" FontWeight="Bold" Foreground="SkyBlue"/>
             <Grid Grid.Row="1">
                 <Grid.Background>
-                    <ImageBrush ImageSource="\Images\controls.png"/>
+                    <ImageBrush Stretch="Uniform" ImageSource="\Images\controls.png"/>
                 </Grid.Background>
             </Grid>
             <Button Grid.Row="2" Content="BACK" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="SkyBlue" Background="Transparent" FontWeight="Bold" FontSize="30" Padding="10" Margin="10" BorderBrush="SkyBlue" BorderThickness="1"  Click="Back_Button_Click" Width="350"/>
