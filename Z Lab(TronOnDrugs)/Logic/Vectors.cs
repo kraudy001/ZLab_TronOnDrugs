@@ -119,6 +119,14 @@ namespace Z_Lab_TronOnDrugs_.Logic
             }
         }
 
+        public Size StoneSize
+        {
+            get
+            {
+                return new Size(5, 5); //preferably same numbers
+            }
+        }
+
         public Geometry Lines
         {
             get
@@ -126,44 +134,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
                 return new RectangleGeometry(new Rect(StartPoint, LineSize));
             }
         }
-        public Geometry MediumBarriers
-        {
-            get
-            {
-                GeometryGroup barriers = new GeometryGroup();
-                barriers.Children.Add(new RectangleGeometry(new Rect(150, 150, displayWidth / 4, lineWidth)));
-                barriers.Children.Add(new RectangleGeometry(new Rect(300, 500, displayWidth / 6, lineWidth)));
-                barriers.Children.Add(new RectangleGeometry(new Rect(1600, 600, displayWidth / 10, lineWidth)));
-                barriers.Children.Add(new RectangleGeometry(new Rect(1000, 70, lineWidth, displayHeight / 8)));
-                barriers.Children.Add(new RectangleGeometry(new Rect(1200, 400, lineWidth, displayHeight / 10)));
-                barriers.Children.Add(new RectangleGeometry(new Rect(800, 600, lineWidth, displayHeight / 5)));
-                return barriers;
-            }
-        }
-        public Geometry HardBarriers
-        {
-            get
-            {
-                GeometryGroup barriers = new GeometryGroup();
-                //vizszint
-                barriers.Children.Add(new RectangleGeometry(new Rect(150, 150, displayWidth / 4, lineWidth)));
-                barriers.Children.Add(new RectangleGeometry(new Rect(200, 600, displayWidth / 6, lineWidth)));
-                barriers.Children.Add(new RectangleGeometry(new Rect(1600, 600, displayWidth / 10, lineWidth)));
-                //fuggo
-                barriers.Children.Add(new RectangleGeometry(new Rect(1000, 70, lineWidth, displayHeight / 8)));
-                barriers.Children.Add(new RectangleGeometry(new Rect(1200, 400, lineWidth, displayHeight / 10)));
-                barriers.Children.Add(new RectangleGeometry(new Rect(800, 600, lineWidth, displayHeight / 5)));
-                //vizszint
-                barriers.Children.Add(new RectangleGeometry(new Rect(1300, 300, displayWidth / 4, lineWidth)));
-                barriers.Children.Add(new RectangleGeometry(new Rect(1000, 800, displayWidth / 6, lineWidth)));
-                barriers.Children.Add(new RectangleGeometry(new Rect(1600, 600, displayWidth / 10, lineWidth)));
-                //fuggo
-                barriers.Children.Add(new RectangleGeometry(new Rect(1600, 500, lineWidth, displayHeight / 8)));
-                barriers.Children.Add(new RectangleGeometry(new Rect(1800, 750, lineWidth, displayHeight / 10)));
-                barriers.Children.Add(new RectangleGeometry(new Rect(1600, 1200, lineWidth, displayHeight / 5)));
-                return barriers;
-            }
-        }
+        
         public List<Vectors> StoneGenerator(double displayWidth, double displayHeight, int numberOfGeneratedStones)
         {
             List<Vectors> Stones = new List<Vectors>();
@@ -172,6 +143,14 @@ namespace Z_Lab_TronOnDrugs_.Logic
                 Stones.Add(new Vectors(new Point(random.Next(20,(int)(displayHeight)-20), random.Next( 20,(int)(displayWidth))), "stone")); // radius 15
             }
             return Stones;
+        }
+
+        public Geometry Stones
+        {
+            get
+            {
+                return new EllipseGeometry(CenterPoint,15,15);
+            }
         }
     }
 }

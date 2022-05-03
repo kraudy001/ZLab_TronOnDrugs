@@ -28,8 +28,8 @@ namespace Z_Lab_TronOnDrugs_
         private void Easy_Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mw = new MainWindow();
-            Display.medium = false;
-            Display.hard = false;
+            MainWindow.medium = false;
+            MainWindow.hard = false;
             mw.Show();
             Close();
         }
@@ -37,8 +37,8 @@ namespace Z_Lab_TronOnDrugs_
         private void Medium_Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mw = new MainWindow();
-            Display.medium = true;
-            Display.hard = false;
+            MainWindow.medium = true;
+            MainWindow.hard = false;
             mw.Show();
             Close();
         }
@@ -46,8 +46,8 @@ namespace Z_Lab_TronOnDrugs_
         private void Hard_Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mw = new MainWindow();
-            Display.medium = false;
-            Display.hard = true;
+            MainWindow.medium = false;
+            MainWindow.hard = true;
             mw.Show();
             Close();
         }

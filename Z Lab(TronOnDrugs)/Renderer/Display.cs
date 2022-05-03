@@ -14,8 +14,6 @@ namespace Z_Lab_TronOnDrugs_.Renderer
     internal class Display : FrameworkElement
     {
         #region Variables
-        public static bool medium;
-        public static bool hard;
         private double lineWidth = 5;
         public static int r;
         public static int g;
@@ -276,15 +274,14 @@ namespace Z_Lab_TronOnDrugs_.Renderer
                 foreach (var vector in logic.Vectors)
                 {
                     drawingContext.DrawGeometry(RandomColor, null, vector.Lines);
-                    if (medium == true)
-                    {
-                        drawingContext.DrawGeometry(RandomColor, null, vector.MediumBarriers);
-                    }
-                    else if (hard == true)
-                    {
-                        drawingContext.DrawGeometry(RandomColor, null, vector.HardBarriers);
-                    }
                 }
+                #endregion
+
+                #region Draw Stones
+                //foreach (var stone in logic.Vectors)
+                //{
+                //    drawingContext.DrawGeometry(RandomColor, null, stone.Stones);
+                //}
                 #endregion
 
                 #region Draw Abilities

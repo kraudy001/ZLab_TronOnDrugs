@@ -90,11 +90,5 @@ namespace Z_Lab_TronOnDrugs_.Logic
 
             Change?.Invoke(null, null);
         }
-
-        public void SizeChange(double displayWidth, double displayHeight)
-        {
-            this.displayWidth = displayWidth;
-            this.displayHeight = displayHeight;
-        }
     }
 }

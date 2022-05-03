@@ -24,10 +24,13 @@ namespace Z_Lab_TronOnDrugs_
     {
         DispatcherTimer dt;
         List<Motor> motorList = new List<Motor>();
+        List<Vectors> stonesList = new List<Vectors>();
         GameLogic logic;
         public static bool oneplayer;
         public static bool twoplayer;
         public static bool threeplayer;
+        public static bool medium;
+        public static bool hard;
 
         public MainWindow()
         {
@@ -52,7 +55,18 @@ namespace Z_Lab_TronOnDrugs_
                 motorList.Add(new Motor(1580, 880, 0));
                 motorList.Add(new Motor(960, 880, 0));
             }
-            logic = new GameLogic(motorList, grid.ActualWidth, grid.ActualHeight - 100);
+            if (medium == true)
+            {
+                logic = new GameLogic(motorList, grid.ActualWidth, grid.ActualHeight - 100, stonesList, false);
+            }
+            else if (hard == true)
+            {
+                logic = new GameLogic(motorList, grid.ActualWidth, grid.ActualHeight - 100, stonesList, true);
+            }
+            else if (medium == false && hard == false)
+            {
+                logic = new GameLogic(motorList, grid.ActualWidth, grid.ActualHeight - 100, stonesList, false);
+            }
             logic.EndGame += Logic_EndGame;
             display.SetupLogic(logic);
             display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
@@ -79,13 +93,6 @@ namespace Z_Lab_TronOnDrugs_
                 mainWindow.Show();
                 this.Close();
             }
-        }
-
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            logic = new GameLogic(motorList, grid.ActualWidth, grid.ActualHeight - 100);
-            display.SetupLogic(logic);
-            display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
