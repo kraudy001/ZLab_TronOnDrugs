@@ -39,18 +39,18 @@ namespace Z_Lab_TronOnDrugs_
             display.RandomRGB();
             if (oneplayer == true)
             {
-                motorList.Add(new Motor(100, 500, 0));
+                motorList.Add(new Motor(960, 880, 0));
             }
             else if (twoplayer == true)
             {
-                motorList.Add(new Motor(100, 500, 0));
-                motorList.Add(new Motor(1000, 500, 0));
+                motorList.Add(new Motor(350, 880, 0));
+                motorList.Add(new Motor(1580, 880, 0));
             }
             else if (threeplayer == true)
             {
-                motorList.Add(new Motor(100, 500, 0));
-                motorList.Add(new Motor(1000, 500, 0));
-                motorList.Add(new Motor(900, 500, 0));
+                motorList.Add(new Motor(350, 880, 0));
+                motorList.Add(new Motor(1580, 880, 0));
+                motorList.Add(new Motor(960, 880, 0));
             }
             logic = new GameLogic(motorList, grid.ActualWidth, grid.ActualHeight - 100);
             logic.EndGame += Logic_EndGame;
@@ -93,11 +93,11 @@ namespace Z_Lab_TronOnDrugs_
             //motor1
             if (e.Key == Key.Left)
             {
-                motorList[0].turnLeft();
+                motorList[0].TurnLeft = true;
             }
             else if (e.Key == Key.Right)
             {
-                motorList[0].turnRight();
+                motorList[0].TurnRight = true;
             }
             else if (e.Key == Key.Down)
             {
@@ -108,11 +108,11 @@ namespace Z_Lab_TronOnDrugs_
             {
                 if (e.Key == Key.A)
                 {
-                    motorList[1].turnLeft();
+                    motorList[1].TurnLeft = true;
                 }
                 else if (e.Key == Key.D)
                 {
-                    motorList[1].turnRight();
+                    motorList[1].TurnRight = true;
                 }
                 else if (e.Key == Key.S)
                 {
@@ -124,11 +124,11 @@ namespace Z_Lab_TronOnDrugs_
             {
                 if (e.Key == Key.J)
                 {
-                    motorList[2].turnLeft();
+                    motorList[2].TurnLeft = true;
                 }
                 else if (e.Key == Key.L)
                 {
-                    motorList[2].turnRight();
+                    motorList[2].TurnRight = true;
                 }
                 else if (e.Key == Key.K)
                 {
@@ -148,6 +148,55 @@ namespace Z_Lab_TronOnDrugs_
                 else if (pm.DialogResult == false)
                 {
                     Close();
+                }
+            }
+        }
+
+        private void Window_KeyUp(object sender, KeyEventArgs e)
+        {
+            //motor1
+            if (e.Key == Key.Left)
+            {
+                motorList[0].TurnLeft = false;
+            }
+            else if (e.Key == Key.Right)
+            {
+                motorList[0].TurnRight = false;
+            }
+            else if (e.Key == Key.Down)
+            {
+                motorList[0].UseAbility();
+            }
+            //motor2
+            if (motorList.Count == 2)
+            {
+                if (e.Key == Key.A)
+                {
+                    motorList[1].TurnLeft = false;
+                }
+                else if (e.Key == Key.D)
+                {
+                    motorList[1].TurnRight = false;
+                }
+                else if (e.Key == Key.S)
+                {
+                    motorList[1].UseAbility();
+                }
+            }
+            //motor3
+            if (motorList.Count == 3)
+            {
+                if (e.Key == Key.J)
+                {
+                    motorList[2].TurnLeft = false;
+                }
+                else if (e.Key == Key.L)
+                {
+                    motorList[2].TurnRight = false;
+                }
+                else if (e.Key == Key.K)
+                {
+                    motorList[2].UseAbility();
                 }
             }
         }
