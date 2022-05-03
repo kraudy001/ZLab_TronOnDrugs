@@ -26,7 +26,8 @@ namespace Z_Lab_TronOnDrugs_.Logic
         public bool Invisible = false;
         public bool FullLine = false;
 
-
+        public bool TurnLeft;
+        public bool TurnRight;
 
         int dasCounter;
 
@@ -44,7 +45,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         }
 
         #region Turning
-        public void TurnLeft()
+        public void turnLeft()
         {
 
             if ((orientation - turnAmount) < 0)
@@ -57,7 +58,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
             }
         }
 
-        public void TurnRight()
+        public void turnRight()
         {
             if(orientation + turnAmount > 360)
             {

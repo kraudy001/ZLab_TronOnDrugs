@@ -49,7 +49,11 @@ namespace Z_Lab_TronOnDrugs_.Logic
                 Vectors vector = motor.Move(Vectors, ref EndGameToken, displayWidth, displayHeight);
                 if (EndGameToken)
                 {
-                    EndGame?.Invoke(null, null);
+                    Motors.Remove(motor);
+                    if(Motors.Count == 0)
+                    {
+                        EndGame?.Invoke(null, null);
+                    }
                 }
                 if (vector != null)
                 {

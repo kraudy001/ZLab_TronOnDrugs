@@ -92,11 +92,11 @@ namespace Z_Lab_TronOnDrugs_
             //motor1
             if (e.Key == Key.Left)
             {
-                motorList[0].TurnLeft();
+                motorList[0].turnLeft();
             }
             else if (e.Key == Key.Right)
             {
-                motorList[0].TurnRight();
+                motorList[0].turnRight();
             }
             else if (e.Key == Key.Down)
             {
@@ -107,11 +107,11 @@ namespace Z_Lab_TronOnDrugs_
             {
                 if (e.Key == Key.A)
                 {
-                    motorList[1].TurnLeft();
+                    motorList[1].turnLeft();
                 }
                 else if (e.Key == Key.D)
                 {
-                    motorList[1].TurnRight();
+                    motorList[1].turnRight();
                 }
                 else if (e.Key == Key.S)
                 {
@@ -123,11 +123,11 @@ namespace Z_Lab_TronOnDrugs_
             {
                 if (e.Key == Key.J)
                 {
-                    motorList[2].TurnLeft();
+                    motorList[2].turnLeft();
                 }
                 else if (e.Key == Key.L)
                 {
-                    motorList[2].TurnRight();
+                    motorList[2].turnRight();
                 }
                 else if (e.Key == Key.K)
                 {
