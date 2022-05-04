@@ -45,22 +45,21 @@ namespace Z_Lab_TronOnDrugs_
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             display.RandomRGB();
-
             #region Players
             if (oneplayer == true)
             {
-                motorList.Add(new Motor(960, 880, 0));
+                motorList.Add(new Motor(960, 880, 0, "Player 1"));
             }
             else if (twoplayer == true)
             {
-                motorList.Add(new Motor(350, 880, 0));
-                motorList.Add(new Motor(1580, 880, 0));
+                motorList.Add(new Motor(350, 880, 0, "Player 1"));
+                motorList.Add(new Motor(1580, 880, 0, "Player 2"));
             }
             else if (threeplayer == true)
             {
-                motorList.Add(new Motor(350, 880, 0));
-                motorList.Add(new Motor(1580, 880, 0));
-                motorList.Add(new Motor(960, 880, 0));
+                motorList.Add(new Motor(350, 880, 0, "Player 1"));
+                motorList.Add(new Motor(1580, 880, 0, "Player 2"));
+                motorList.Add(new Motor(960, 880, 0, "Player 3"));
             }
             #endregion
 
@@ -112,85 +111,52 @@ namespace Z_Lab_TronOnDrugs_
         #region Controls
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            //ha egy motor van
-            if (e.Key == Key.Left)
+            foreach (var motor in logic.Motors)
             {
-                motorList[0].TurnLeft = true;
-            }
-            else if (e.Key == Key.Right)
-            {
-                motorList[0].TurnRight = true;
-            }
-            else if (e.Key == Key.Down)
-            {
-                motorList[0].UseAbility();
-            }
-            //ha ketto motor van
-            if (motorList.Count == 2)
-            {
-                if (e.Key == Key.Left)
+                if (motor.name == "Player 1")
                 {
-                    motorList[0].TurnLeft = true;
+                    if (e.Key == Key.Left)
+                    {
+                        motor.TurnLeft = true;
+                    }
+                    else if (e.Key == Key.Right)
+                    {
+                        motor.TurnRight = true;
+                    }
+                    else if (e.Key == Key.Down)
+                    {
+                        motor.UseAbility();
+                    }
                 }
-                else if (e.Key == Key.Right)
+                else if (motor.name == "Player 2")
                 {
-                    motorList[0].TurnRight = true;
+                    if (e.Key == Key.A)
+                    {
+                        motor.TurnLeft = true;
+                    }
+                    else if (e.Key == Key.D)
+                    {
+                        motor.TurnRight = true;
+                    }
+                    else if (e.Key == Key.S)
+                    {
+                        motor.UseAbility();
+                    }
                 }
-                else if (e.Key == Key.Down)
+                else if (motor.name == "Player 3")
                 {
-                    motorList[0].UseAbility();
-                }
-                else if (e.Key == Key.A)
-                {
-                    motorList[1].TurnLeft = true;
-                }
-                else if (e.Key == Key.D)
-                {
-                    motorList[1].TurnRight = true;
-                }
-                else if (e.Key == Key.S)
-                {
-                    motorList[1].UseAbility();
-                }
-            }
-            //ha harom motor van
-            if (motorList.Count == 3)
-            {
-                if (e.Key == Key.Left)
-                {
-                    motorList[0].TurnLeft = true;
-                }
-                else if (e.Key == Key.Right)
-                {
-                    motorList[0].TurnRight = true;
-                }
-                else if (e.Key == Key.Down)
-                {
-                    motorList[0].UseAbility();
-                }
-                else if (e.Key == Key.A)
-                {
-                    motorList[1].TurnLeft = true;
-                }
-                else if (e.Key == Key.D)
-                {
-                    motorList[1].TurnRight = true;
-                }
-                else if (e.Key == Key.S)
-                {
-                    motorList[1].UseAbility();
-                }
-                else if (e.Key == Key.J)
-                {
-                    motorList[2].TurnLeft = true;
-                }
-                else if (e.Key == Key.L)
-                {
-                    motorList[2].TurnRight = true;
-                }
-                else if (e.Key == Key.K)
-                {
-                    motorList[2].UseAbility();
+                    if (e.Key == Key.J)
+                    {
+                        motor.TurnLeft = true;
+                    }
+                    else if (e.Key == Key.L)
+                    {
+                        motor.TurnRight = true;
+                    }
+                    else if (e.Key == Key.K)
+                    {
+                        motor.UseAbility();
+                    }
                 }
             }
             //menu
@@ -212,85 +178,52 @@ namespace Z_Lab_TronOnDrugs_
 
         private void Window_KeyUp(object sender, KeyEventArgs e)
         {
-            //ha egy motor van
-            if (e.Key == Key.Left)
+            foreach (var motor in logic.Motors)
             {
-                motorList[0].TurnLeft = false;
-            }
-            else if (e.Key == Key.Right)
-            {
-                motorList[0].TurnRight = false;
-            }
-            else if (e.Key == Key.Down)
-            {
-                motorList[0].UseAbility();
-            }
-            //ha ketto motor van
-            if (motorList.Count == 2)
-            {
-                if (e.Key == Key.Left)
+                if (motor.name == "Player 1")
                 {
-                    motorList[0].TurnLeft = false;
+                    if (e.Key == Key.Left)
+                    {
+                        motor.TurnLeft = false;
+                    }
+                    else if (e.Key == Key.Right)
+                    {
+                        motor.TurnRight = false;
+                    }
+                    else if (e.Key == Key.Down)
+                    {
+                        motor.UseAbility();
+                    }
                 }
-                else if (e.Key == Key.Right)
+                else if (motor.name == "Player 2")
                 {
-                    motorList[0].TurnRight = false;
+                    if (e.Key == Key.A)
+                    {
+                        motor.TurnLeft = false;
+                    }
+                    else if (e.Key == Key.D)
+                    {
+                        motor.TurnRight = false;
+                    }
+                    else if (e.Key == Key.S)
+                    {
+                        motor.UseAbility();
+                    }
                 }
-                else if (e.Key == Key.Down)
+                else if (motor.name == "Player 3")
                 {
-                    motorList[0].UseAbility();
-                }
-                else if (e.Key == Key.A)
-                {
-                    motorList[1].TurnLeft = false;
-                }
-                else if (e.Key == Key.D)
-                {
-                    motorList[1].TurnRight = false;
-                }
-                else if (e.Key == Key.S)
-                {
-                    motorList[1].UseAbility();
-                }
-            }
-            //ha harom motor van
-            if (motorList.Count == 3)
-            {
-                if (e.Key == Key.Left)
-                {
-                    motorList[0].TurnLeft = false;
-                }
-                else if (e.Key == Key.Right)
-                {
-                    motorList[0].TurnRight = false;
-                }
-                else if (e.Key == Key.Down)
-                {
-                    motorList[0].UseAbility();
-                }
-                else if (e.Key == Key.A)
-                {
-                    motorList[1].TurnLeft = false;
-                }
-                else if (e.Key == Key.D)
-                {
-                    motorList[1].TurnRight = false;
-                }
-                else if (e.Key == Key.S)
-                {
-                    motorList[1].UseAbility();
-                }
-                else if (e.Key == Key.J)
-                {
-                    motorList[2].TurnLeft = false;
-                }
-                else if (e.Key == Key.L)
-                {
-                    motorList[2].TurnRight = false;
-                }
-                else if (e.Key == Key.K)
-                {
-                    motorList[2].UseAbility();
+                    if (e.Key == Key.J)
+                    {
+                        motor.TurnLeft = false;
+                    }
+                    else if (e.Key == Key.L)
+                    {
+                        motor.TurnRight = false;
+                    }
+                    else if (e.Key == Key.K)
+                    {
+                        motor.UseAbility();
+                    }
                 }
             }
         }

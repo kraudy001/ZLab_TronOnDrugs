@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Z_Lab_TronOnDrugs_.Logic;
 using Z_Lab_TronOnDrugs_.Renderer;
 
 namespace Z_Lab_TronOnDrugs_
@@ -23,6 +24,7 @@ namespace Z_Lab_TronOnDrugs_
         public GameOverWindow()
         {
             InitializeComponent();
+            MainWindow mainWindow = new MainWindow();
         }
 
         private void Again_Button_Click(object sender, RoutedEventArgs e)

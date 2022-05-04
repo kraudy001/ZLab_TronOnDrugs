@@ -138,118 +138,67 @@ namespace Z_Lab_TronOnDrugs_.Renderer
                 #endregion
 
                 #region Motor Properties
-                if (logic.Motors.Count == 1)
+                foreach (var motor in logic.Motors)
                 {
                     //motor1
-                    drawingContext.DrawRectangle(BlueMotorBrush, null, new Rect(5, area.Height - 100, 100, 100));
-                    if (logic.Motors[0].special != null)
+                    if (motor.name == "Player 1")
                     {
-                        // ha felvette az abilityt
-                        if (logic.Motors[0].special.Name == "Ghost")
-                        {
-                            drawingContext.DrawEllipse(GhostAbilityBrush, null, new Point(area.Width - (area.Width - 125), area.Height - 47.5), 25, 25);
-                        }
-                        else if (logic.Motors[0].special.Name == "Speed")
-                        {
-                            drawingContext.DrawEllipse(SpeedAbilityBrush, null, new Point(area.Width - (area.Width - 125), area.Height - 47.5), 25, 25);
-                        }
-                        else if (logic.Motors[0].special.Name == "Wall")
-                        {
-                            drawingContext.DrawEllipse(WallAbilityBrush, null, new Point(area.Width - (area.Width - 125), area.Height - 47.5), 25, 25);
-                        }
+                        drawingContext.DrawRectangle(BlueMotorBrush, null, new Rect(5, area.Height - 100, 100, 100));
                     }
-                }
-                else if (logic.Motors.Count == 2)
-                {
-                    //motor1
-                    drawingContext.DrawRectangle(BlueMotorBrush, null, new Rect(5, area.Height - 100, 100, 100));
-                    if (logic.Motors[0].special != null)
+                    if (motor.name == "Player 1" && motor.special != null)
                     {
                         // ha felvette az abilityt
-                        if (logic.Motors[0].special.Name == "Ghost")
+                        if (motor.name == "Player 1" && motor.special.Name == "Ghost")
                         {
                             drawingContext.DrawEllipse(GhostAbilityBrush, null, new Point(area.Width - (area.Width - 125), area.Height - 47.5), 25, 25);
                         }
-                        else if (logic.Motors[0].special.Name == "Speed")
+                        else if (motor.name == "Player 1" && motor.special.Name == "Speed")
                         {
                             drawingContext.DrawEllipse(SpeedAbilityBrush, null, new Point(area.Width - (area.Width - 125), area.Height - 47.5), 25, 25);
                         }
-                        else if (logic.Motors[0].special.Name == "Wall")
+                        else if (motor.name == "Player 1" && motor.special.Name == "Wall")
                         {
                             drawingContext.DrawEllipse(WallAbilityBrush, null, new Point(area.Width - (area.Width - 125), area.Height - 47.5), 25, 25);
                         }
                     }
                     //motor2
-                    drawingContext.DrawRectangle(YellowMotorBrush, null, new Rect(area.Width - 205, area.Height - 100, 100, 100));
-                    if (logic.Motors[1].special != null)
+                    if (motor.name == "Player 2")
+                    {
+                        drawingContext.DrawRectangle(YellowMotorBrush, null, new Rect(area.Width - 205, area.Height - 100, 100, 100));
+                    }
+                    if (motor.name == "Player 2" && motor.special != null)
                     {
                         // ha felvette az abilityt
-                        if (logic.Motors[1].special.Name == "Ghost")
+                        if (motor.name == "Player 2" && motor.special.Name == "Ghost")
                         {
                             drawingContext.DrawEllipse(GhostAbilityBrush, null, new Point(area.Width - 65, area.Height - 47.5), 25, 25);
                         }
-                        else if (logic.Motors[1].special.Name == "Speed")
+                        else if (motor.name == "Player 2" && motor.special.Name == "Speed")
                         {
                             drawingContext.DrawEllipse(SpeedAbilityBrush, null, new Point(area.Width - 65, area.Height - 47.5), 25, 25);
                         }
-                        else if (logic.Motors[1].special.Name == "Wall")
-                        {
-                            drawingContext.DrawEllipse(WallAbilityBrush, null, new Point(area.Width - 65, area.Height - 47.5), 25, 25);
-                        }
-                    }
-                }
-                else if(logic.Motors.Count == 3)
-                {
-                    //motor1
-                    drawingContext.DrawRectangle(BlueMotorBrush, null, new Rect(5, area.Height - 100, 100, 100));
-                    if (logic.Motors[0].special != null)
-                    {
-                        // ha felvette az abilityt
-                        if (logic.Motors[0].special.Name == "Ghost")
-                        {
-                            drawingContext.DrawEllipse(GhostAbilityBrush, null, new Point(area.Width - (area.Width - 125), area.Height - 47.5), 25, 25);
-                        }
-                        else if (logic.Motors[0].special.Name == "Speed")
-                        {
-                            drawingContext.DrawEllipse(SpeedAbilityBrush, null, new Point(area.Width - (area.Width - 125), area.Height - 47.5), 25, 25);
-                        }
-                        else if (logic.Motors[0].special.Name == "Wall")
-                        {
-                            drawingContext.DrawEllipse(WallAbilityBrush, null, new Point(area.Width - (area.Width - 125), area.Height - 47.5), 25, 25);
-                        }
-                    }
-                    //motor2
-                    drawingContext.DrawRectangle(YellowMotorBrush, null, new Rect(area.Width - 205, area.Height - 100, 100, 100));
-                    if (logic.Motors[1].special != null)
-                    {
-                        // ha felvette az abilityt
-                        if (logic.Motors[1].special.Name == "Ghost")
-                        {
-                            drawingContext.DrawEllipse(GhostAbilityBrush, null, new Point(area.Width - 65, area.Height - 47.5), 25, 25);
-                        }
-                        else if (logic.Motors[1].special.Name == "Speed")
-                        {
-                            drawingContext.DrawEllipse(SpeedAbilityBrush, null, new Point(area.Width - 65, area.Height - 47.5), 25, 25);
-                        }
-                        else if (logic.Motors[1].special.Name == "Wall")
+                        else if (motor.name == "Player 2" && motor.special.Name == "Wall")
                         {
                             drawingContext.DrawEllipse(WallAbilityBrush, null, new Point(area.Width - 65, area.Height - 47.5), 25, 25);
                         }
                     }
                     //motor3
-                    drawingContext.DrawRectangle(BuggieBrush, null, new Rect(area.Width / 2 - 100, area.Height - 100, 100, 100));
-                    if (logic.Motors[2].special != null)
+                    if (motor.name == "Player 3")
+                    {
+                        drawingContext.DrawRectangle(BuggieBrush, null, new Rect(area.Width / 2 - 100, area.Height - 100, 100, 100));
+                    }
+                    if (motor.name == "Player 3" && motor.special != null)
                     {
                         // ha felvette az abilityt
-                        if (logic.Motors[2].special.Name == "Ghost")
+                        if (motor.name == "Player 3" && motor.special.Name == "Ghost")
                         {
                             drawingContext.DrawEllipse(GhostAbilityBrush, null, new Point(area.Width - (area.Width / 2 - 20), area.Height - 47.5), 25, 25);
                         }
-                        else if (logic.Motors[2].special.Name == "Speed")
+                        else if (motor.name == "Player 3" && motor.special.Name == "Speed")
                         {
                             drawingContext.DrawEllipse(SpeedAbilityBrush, null, new Point(area.Width - (area.Width / 2 - 20), area.Height - 47.5), 25, 25);
                         }
-                        else if (logic.Motors[2].special.Name == "Wall")
+                        else if (motor.name == "Player 3" && motor.special.Name == "Wall")
                         {
                             drawingContext.DrawEllipse(WallAbilityBrush, null, new Point(area.Width - (area.Width / 2 - 20), area.Height - 47.5), 25, 25);
                         }
@@ -261,15 +210,15 @@ namespace Z_Lab_TronOnDrugs_.Renderer
                 foreach (var motor in logic.Motors)
                 {
                     drawingContext.PushTransform(new RotateTransform(motor.Orientation, motor.Placement.X, motor.Placement.Y));
-                    if (motor == logic.Motors[0])
+                    if (motor.name == "Player 1")
                     {
                         drawingContext.DrawGeometry(BlueMotorBrush, null, motor.Area);
                     }
-                    else if (motor == logic.Motors[1])
+                    else if (motor.name == "Player 2")
                     {
                         drawingContext.DrawGeometry(YellowMotorBrush, null, motor.Area);
                     }
-                    else if (motor == logic.Motors[2])
+                    else if (motor.name == "Player 3")
                     {
                         drawingContext.DrawGeometry(BuggieBrush, null, motor.Area);
                     }

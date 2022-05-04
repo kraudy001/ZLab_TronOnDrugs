@@ -20,6 +20,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
         #region Variables
         //calculated in degree  (0-360)
         int orientation;
+        public string name;
 
         public AbilityBase special;  //currentli usable ability
         public int AbilitiActiveTurns = 0;
@@ -39,10 +40,11 @@ namespace Z_Lab_TronOnDrugs_.Logic
         #endregion
 
         #region Constructors
-        public Motor(int wericalStart, int horisontalStart, int startingOrientation)
+        public Motor(int wericalStart, int horisontalStart, int startingOrientation, string name)
         {
             this.Placement = new Point( wericalStart, horisontalStart);
             this.orientation = startingOrientation;
+            this.name = name;
             dasCounter = 18;
         }
         #endregion
