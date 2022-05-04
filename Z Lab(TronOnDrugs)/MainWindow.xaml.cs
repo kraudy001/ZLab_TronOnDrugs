@@ -45,6 +45,7 @@ namespace Z_Lab_TronOnDrugs_
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             display.RandomRGB();
+
             #region Players
             if (oneplayer == true)
             {
@@ -52,13 +53,13 @@ namespace Z_Lab_TronOnDrugs_
             }
             else if (twoplayer == true)
             {
-                motorList.Add(new Motor(350, 880, 0, "Player 1"));
-                motorList.Add(new Motor(1580, 880, 0, "Player 2"));
+                motorList.Add(new Motor(1580, 880, 0, "Player 1"));
+                motorList.Add(new Motor(350, 880, 0, "Player 2"));
             }
             else if (threeplayer == true)
             {
-                motorList.Add(new Motor(350, 880, 0, "Player 1"));
-                motorList.Add(new Motor(1580, 880, 0, "Player 2"));
+                motorList.Add(new Motor(1580, 880, 0, "Player 1"));
+                motorList.Add(new Motor(350, 880, 0, "Player 2"));
                 motorList.Add(new Motor(960, 880, 0, "Player 3"));
             }
             #endregion
@@ -97,7 +98,7 @@ namespace Z_Lab_TronOnDrugs_
         private void Logic_EndGame(object sender, EventArgs e)
         {
             dt.Stop();
-            GameOverWindow gameOver = new GameOverWindow();
+            GameOverWindow gameOver = new GameOverWindow(logic);
             gameOver.ShowDialog();
           
             if (gameOver.DialogResult == true)
