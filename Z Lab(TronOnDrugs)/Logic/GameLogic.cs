@@ -111,7 +111,7 @@ namespace Z_Lab_TronOnDrugs_.Logic
 
             if (randomStones && random.NextDouble() < 0.05)
             {
-                Vectors.Add(new Vectors(new Point(random.Next(20, (int)(displayHeight) - 20), random.Next(20, (int)(displayWidth))), "stone"));
+                Vectors.Add(new Vectors(new Point(random.Next(20, (int)(displayWidth) - 20), random.Next(20, (int)(displayHeight) - 60)), "stone"));
             }
 
             Change?.Invoke(null, null);
