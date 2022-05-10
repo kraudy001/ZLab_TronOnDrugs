@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Z_Lab_TronOnDrugs_.Logic
 {
-    internal interface IGameLogic
+    public interface IGameLogic
     {
         List<Motor> Motors { get; set; }
         List<Vectors> Vectors { get; set; }
